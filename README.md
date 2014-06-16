@@ -1,4 +1,4 @@
 brettimus.github.io
 ===================
 
-howdoisetshitonfire.academy
+This is my personal site. Thinking about doing that Jekyll thang.
