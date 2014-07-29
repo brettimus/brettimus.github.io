@@ -1,0 +1,48 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Donut</title>
+	<link rel="stylesheet" href="./styles.css">
+	<script src="./d3.min.js"></script>
+</head>
+<body>
+	<script>
+		var data = [8000, 20000];    // current, total
+		var color = d3.scale.ordinal()
+		              .range(["#888", "#ccc"]);
+
+		var dims   = {height: 500, width: 500};
+		var margin = {top: 20, right: 20, bottom: 20, left: 20}; // not currently in use because of centroid shit
+		var w = dims.width - margin.right - margin.left;
+		var h = dims.height - margin.top - margin.bottom;
+
+		var r = Math.floor(w/2);              // Radius in pixels
+		var svg = d3.select("body").append("svg").attr({height: dims.height, width: dims.width})
+					.append("g").attr("transform","translate(" + [r , r] + ")");
+
+		var arc = d3.svg.arc()
+		            .innerRadius(0)
+		            .outerRadius(r)
+
+		var pie = d3.layout.pie()
+		            .value(function(d) { return d;});
+
+		var arcs = svg.selectAll(".arc")
+		              .data(pie(data))              //Bind data through pie layout
+		              .enter()
+		              .append("g")
+		              .attr("class","arc");          
+
+		arcs.append("path")                         //Append path to each returned object
+		    .attr("d", arc)                         //D fetches path from arc generator
+		    .attr("fill", function(d) { return color(d.data)});
+
+		arcs.append("text")
+		    .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")";})
+		    .attr("text-anchor", "middle")
+		    .attr("font-size", "1.5em")
+		    .text(function (d) { return "$" + d.data; });
+
+	</script>	
+</body>
+</html>
