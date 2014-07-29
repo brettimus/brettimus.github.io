@@ -13,7 +13,7 @@
 	<script>
 		var data = d3.range(200);
 		var xScale = d3.scale.linear().domain([d3.min(data),d3.max(data)]).range([5,695]);
-		var yScale = d3.scale.pow().exponent(3).domain([d3.min(data),d3.max(data)]).range([695,0]);
+		var yScale = d3.scale.pow().exponent(3).domain([d3.min(data),d3.max(data)]).range([695,5]);
 		var svg = d3.select("body").append("svg").attr({height: 700, width: 700});
 		svg.selectAll("circle")
 			.data(data)
