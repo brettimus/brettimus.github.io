@@ -138,7 +138,7 @@ Hyperspace = (function(){
 
         make_dot_flingers(theta_noise).forEach(function(flinger){
             var meh0 = setInterval(flinger, randomIntervalTime);
-            setTimeout(function(){ clearInterval(meh0); }, 4000);
+            setTimeout(function(){ clearInterval(meh0); }, 5000);
         });
     }
 
