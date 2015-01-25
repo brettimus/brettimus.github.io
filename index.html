@@ -1,18 +1,13 @@
-<!doctype html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>hi. there.</title>
-</head>
-<body>
-    {% for post in site.posts %}
-    <li>
-        <span>
-            {{ post.date | date_to_string }}
-        </span>
-        &raquo;
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}	
-</body>
-</html>
+---
+layout: default
+title: testing
+---
+{% for post in site.posts %}
+<li>
+    <span>
+        {{ post.date | date_to_string }}
+    </span>
+    &raquo;
+    <a href="{{ post.url }}">{{ post.title }}</a>
+</li>
+{% endfor %}	
