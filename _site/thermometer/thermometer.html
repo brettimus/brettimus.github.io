@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="./d3.min.js"></script>
+
+	</head>
+	<body>
+		<div class="chart">
+		</div>
+		<script>
+			// these are all in pixels
+			var settings = {
+				h: 200,
+				w: 200,
+				barWidth: 100,
+				barColor: "#000",
+				lineColor: "#ff0000",
+				lineWidth: 1,
+				textMargin: 10,
+				fontSize: 20,
+				fontColor: "#888"
+			}
+			var h             = settings.h;
+			var w             = settings.w;
+			var barWidth      = settings.barWidth;
+			var barHeight     = h - settings.fontSize - settings.textMargin;
+			var barColor      = settings.barColor;
+			var lineColor     = settings.lineColor; 
+			var lineWidth     = settings.lineWidth;
+			var textMargin    = settings.textMargin;
+			var fontSize      = settings.fontSize;
+			var fontColor     = settings.fontColor;
+			// grab data from data-attribs of hidden spans... or text boxes?
+			var data = [10000, 20000];
+			var goal = d3.max(data);
+			// set scales for data
+			var yScale = d3.scale.linear().domain([0,goal]).range([h, h-barHeight]);
+			var textYScale = d3.scale.linear().domain([0,goal]).range([h-fontSize,h-barHeight]);
+			var svg = d3.select(".chart").append("svg").attr({ height: h, width: w });
+
+			svg.selectAll("rect")
+				.data(data)
+				.enter()
+				.append("rect")
+				.attr({
+					x: function(d,i) { return i === 0 ? 0 : w;},
+					y: 200,
+					height: function(d) { return h - yScale(d);},
+					width: function(d,i) { return i === 0 ? barWidth : 0;},
+					fill: barColor
+				})
+				.transition()
+				.delay(function(d,i){ return (i + 1)*250})
+				.attr({
+					y: yScale
+				})
+			svg.selectAll("line")
+				.data(data)
+				.enter()
+				.append("line")
+				.attr({
+					x1: 0,
+					x2: 0,
+					y1: yScale,
+					y2: yScale,
+					stroke: lineColor,
+					"stroke-width": lineWidth
+				})
+				.transition()
+				.delay(500)
+				.attr({
+					x2: function(d,i) { return i === 0 ? 0 : w; }
+				})
+			// make axes instead?
+			svg.selectAll("text")
+				.data(data)
+				.enter()
+				.append("text")
+				.attr({
+					x: function(d,i) { return i === 0 ? textMargin : textMargin + barWidth},
+					y: function(d,i) { return i === 0 ? textYScale(d) : h - barHeight + fontSize;}, // yScale will cause issues
+					"font-size": fontSize,
+					fill: fontColor,
+					opacity: 0
+				})
+				.text(function(d) { return "$" + d.toString() })
+				.transition(600)
+				.attr({
+					opacity: 1
+				})
+		</script>
+	</body>
+</html>
