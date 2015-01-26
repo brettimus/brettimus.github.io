@@ -1,2 +1,6 @@
-markdown: rdiscount
-highlighter: pygments
+gems:
+  - jemoji
+
+markdown: kramdown
+kramdown:
+  input: GFM
