@@ -1,13 +1,15 @@
 ---
 layout: default
-title: testing
 ---
+<!-- <div class="le-blog">a wild blog appeared!</div> -->
+<div class="wild-blog">look! <br> a wild blog appeared!</div>
+<ul class="blog-posts">
 {% for post in site.posts %}
-<li>
-    <span>
-        {{ post.date | date_to_string }}
-    </span>
-    &raquo;
+<li class="post">
     <a href="{{ post.url }}">{{ post.title }}</a>
+    <small>
+        {{ post.date | date: "%B %d, %Y" }}
+    </small>
 </li>
 {% endfor %}	
+</ul>

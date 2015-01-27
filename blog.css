@@ -1,0 +1,128 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    font-family: 'Josefin Sans', sans-serif;
+    height: 421px;
+    margin: 0 auto;
+    position: relative;
+    max-width: 720px;
+}
+
+header .top {
+    font-size: 70px;
+    padding: 35px;
+}
+
+header .middle {
+    font-size: 12px;
+    letter-spacing: .02em;
+    opacity: .4;
+    position: absolute;
+    text-align: center;
+    top: 150px;
+    width: 100%;
+}
+
+header .middle:hover {
+    opacity: .55;
+    -webkit-animation: all 1s ease-in-out;
+    -o-animation: all 1s ease-in-out;
+    animation: all 1s ease-in-out;
+}
+
+header .bottom {
+    bottom: 0;
+    font-weight: 300;
+    opacity: .1;
+    position: absolute;
+    right: 10px;
+    text-align: right;
+    width: 100%;
+}
+
+.le-blog {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    margin: 0 auto;
+    opacity: .7;
+    padding-top: 25px;
+    text-align: center;
+    max-width: 421px;  
+}
+
+.wild-blog {
+    font-family: 'Josefin Sans', sans-serif;
+    line-height: 21px;
+    margin: 0 auto;
+    opacity: .4;
+    padding: 25px 0;
+    text-align: center;
+}
+
+.blog-posts {
+    /*border-top: solid 1px #2F394D;*/
+    font-family: 'Oswald', sans-serif;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 25px;
+    max-width: 421px;
+}
+
+.blog-posts .post {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.blog-posts .post a {
+    color: #8E4162;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    padding-right: 25px;
+    text-decoration: none;
+
+    -webkit-animation: all 600ms ease-in-out;
+    -o-animation: all 600ms ease-in-out;
+    animation: all 600ms ease-in-out;
+}
+
+.blog-posts .post a:hover {
+    opacity: 1;
+    text-decoration: underline;
+
+    -webkit-animation: all 600ms ease-in-out;
+    -o-animation: all 600ms ease-in-out;
+    animation: all 600ms ease-in-out;
+}
+
+.blog-posts .post:first-child {
+    opacity: .9;
+}
+
+
+.blog-posts .post small {
+    display: block;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 7px 0 15px 0;
+    opacity: .85;
+    text-align: right;
+}
+
+
+
+.u-12px {
+    font-size: 12px;
+}
+
+.u-14px {
+    font-size: 14px;
+}
+
+.u-hide {
+    display: none;
+}
