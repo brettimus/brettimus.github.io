@@ -1,3 +1,5 @@
+/* do not judge. haste makes shitty css. */
+
 html, body {
     margin: 0;
     padding: 0;
@@ -19,19 +21,44 @@ header .top {
 header .middle {
     font-size: 12px;
     letter-spacing: .02em;
-    opacity: .4;
     position: absolute;
     text-align: center;
     top: 150px;
     width: 100%;
 }
 
-header .middle:hover {
-    opacity: .55;
-    -webkit-animation: all 1s ease-in-out;
-    -o-animation: all 1s ease-in-out;
-    animation: all 1s ease-in-out;
-}
+    header .middle p {
+        opacity: .4; 
+    }
+    header .middle:hover {
+        opacity: 1;
+        -webkit-transition: all .5s ease-in-out;
+        -o-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
+    }
+
+
+    .social-buttons ul {
+        list-style-type: none;
+        margin: 0 auto;
+        width: 150px;
+    }
+    .social-buttons li {
+        float: left;
+        text-align: left;
+        width: 33%;
+    }
+
+    .social-buttons .button {
+        background: black;
+        color: white;
+        border-radius: 50em;
+        height: 25px;
+        line-height: 25px;
+        margin-left: -12px;
+        text-align: center;
+        width: 25px;
+    }
 
 header .bottom {
     bottom: 0;
