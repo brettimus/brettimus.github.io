@@ -5,14 +5,11 @@ body {
     line-height: 1.43em;
 }
 
-
-
 header {
     font-family: 'Oswald', sans-serif;
     font-size: 48px;
     font-weight: 700;
     line-height: 62px;
-    margin-top: 20px;
 }
 
 .post-container {
@@ -20,6 +17,17 @@ header {
     max-width: 600px;
 }
 
+.post-container header {
+    margin: 50px 0;
+}
+
 .u-center {
     text-align: center;
+}
+
+pre {
+    background: #000;
+    border-radius: 3px;
+    color: #f5f5f5;
+    padding-left: 15px;
 }
