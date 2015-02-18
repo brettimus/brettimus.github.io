@@ -28,6 +28,11 @@
 
   <!-- Required Modernizr file -->
   <script src="../deck.js/modernizr.custom.js"></script>
+  <style>
+    code {
+      padding: 30px;
+    }
+  </style>
 </head>
 <body>
   <div class="deck-container">
@@ -69,7 +74,18 @@
       <ul>
         <li class="slide">works at switchboard</li>
         <li class="slide">makes stupid web apps on the side</li>
-        <li class="slide">has failed many times at making reusable d3 code</li>
+        <li class="slide">currently learning ember</li>
+        <li class="slide">
+          has ~*~ qualifications ~*~
+          <ol>
+            <li class="slide">
+              both his spirit animal & zodiac sign are javascript
+            </li>
+            <li class="slide">
+              has failed many times at making reusable d3 code
+            </li>
+          </ol>
+        </li>
       </ul>
     </section>
 
@@ -90,7 +106,7 @@
     </section>
 
     <section class="slide">
-      <h1>why ddddd?</h1>
+      <h1>"why ddddd?"</h1>
     </section>
 
     <section class="slide">
@@ -111,7 +127,7 @@
     </section>
 
     <section class="slide">
-      <h2>1. CRY</h2>
+      <h2>re: CRY</h2>
       <h3>NB for the lazies</h3>
       <p class="slide">tons of libraries already exist!</p>
       <ul>
@@ -137,24 +153,25 @@
           under construction
           <ul>
             <li class="slide">SugarCube</li>
+            <li class="slide">R2D3 (???)</li>
           </ul>
         </li>
       </ul>
     </section>
 
     <section class="slide">
-      <h2>1. CRY (cont'd)</h2>
+      <h2>re: CRY (cont'd)</h2>
       <h3>another NB for the lazies</h3>
       <p class="slide">charting libraries can be constraining</p>
       <ul>
         <li class="slide">aesthetics</li>
-        <li class="slide">functionality</li>
+        <li class="slide">functionality (adding callbacks, etc.)</li>
       </ul>
       <p class="slide">(all the more reason to roll our own!!)</p>
     </section>
 
     <section class="slide">
-      <h1>let's do it!</h1>
+      <h1>so let's do it!</h1>
     </section>
 
     <section class="slide">
@@ -166,15 +183,33 @@
     </section>
 
     <section class="slide">
-      <h2>step 1 - plagiarism</h2>
+      <h2>step 1 - plagiarism<sup>TM</sup>!</h2>
       <h3 class="slide">to plagiarize, try visiting
         <a href="https://github.com/mbostock/d3/wiki/Gallery" target="_blank">the gallery</a></h3>
       <p class="slide">(i like 
-        <a href="http://bl.ocks.org/mbostock/3883195">this one</a>)</p>
+        <a href="http://bl.ocks.org/mbostock/3883195" target="_blank">this chart</a>)</p>
     </section>
 
     <section class="slide">
-      <h1>Here</h1>
+      <h1>general concerns</h1>
+    </section>
+
+    <section class="slide">
+      <h2>concerns</h2>
+      <ul>
+        <li class="slide">what should be configured?</li>
+        <li class="slide">how do we draw the chart?</li>
+        <li class="slide">how do we handle our data?</li>
+        <li class="slide">how do we update the chart?</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h1>mem: use d3</h1>
+    </section>
+
+    <section class="slide">
+      <h1>code time!</h1>
     </section>
 
     <!-- End slides. -->
