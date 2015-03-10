@@ -1,0 +1,83 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700,300' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/styles/blog-post.css">
+</head>
+<body>
+    <div class="post-container">
+        <header>
+            Writing a Placeholder Text Module for Quill.js
+        </header>
+        <div>
+            <h2 id="everything-is-fine">Everything Is Fine.</h2>
+
+<p>We mighty devs at Switchboard are in week two of <em>Le Grand Redesign</em> (which is very much <em>Un Grand Refacteur</em> at this point). Things are going really smoothly. At least they are for me. At least they were for me. Until I got around to redoing our text editor.</p>
+
+<p>One thing I had to deal with was figuring out how to use placeholder text with Quill.js.</p>
+
+<p>This is my story.</p>
+
+<h2 id="everything-is-broken">Everything Is Broken.</h2>
+
+<p>In the current, production version of Switchboard, we are using a Medium-style editor.</p>
+
+<p>It is a nightmare. </p>
+
+<p>It haunts my dreams <img class="emoji" title=":ghost:" alt=":ghost:" src="https://assets.github.com/images/icons/emoji/unicode/1f47b.png" height="20" width="20" align="absmiddle" />. </p>
+
+<p>It is the source of an untold number of support tickets.</p>
+
+<p>It must die. </p>
+
+<h2 id="everything-might-not-be-broken">Everything Might Not Be Broken.</h2>
+
+<p>A few months back, I put <a href="http://quilljs.com/">Quill.js</a> on our radar after listening to <a href="http://www.stitcher.com/podcast/ruby-rogues/javascript-jabber/e/134-jsj-quilljs-with-jason-chen-36034417">this episode of javascript jabber</a>, which interviews Jason Chen. </p>
+
+<p>(If you create an issue or submit a PR on the <a href="https://github.com/quilljs/quill">Quill repo</a>, you’ll likely end up talking to Jason.)</p>
+
+<p>Quill is not stable yet (v. 0.19.3 at the time of this writing), but it has made some massive improvements in the past few months, the biggest of which was removal of their iframe dependency.</p>
+
+<p>Of course, I was a dumb, and I started out using an older version of Quill. Because Switchboard runs on Rails (toot toot!), I went straight to the first asset gem I could find. It was out of date <img class="emoji" title=":disappointed:" alt=":disappointed:" src="https://assets.github.com/images/icons/emoji/unicode/1f61e.png" height="20" width="20" align="absmiddle" />.</p>
+
+<p>I wrote our first pass at a customized editor having to deal with all the attendant awfulness that iframes come with. But thus is life. I got good practice with sending messages to and from an iframe with <code>window.PostMessage</code>. Learning occurred. I’m over it. I hope you don’t have to do the same.</p>
+
+<h2 id="everything-is-still-kind-of-broken">Everything Is Still Kind-Of Broken.</h2>
+
+<p>Now, about this redesign. </p>
+
+<p>We had the fortune of a code-savvy freelance designer, so most of our initial work has been converting his <code>haml</code> to <code>erb</code> (thanks be to <a href="https://haml2erb.org/">this site</a>) and plugging our app’s view logic into his beautiful templates.</p>
+
+<p>I had to add a few hacky styles to get our Quill editor to look like the textareas in his designs. (This was much easier once I redid the editor <em>without</em> the iframe dependency.)</p>
+
+<p>We ran into a bit of a bump with placeholder text, though. I saw one post on a forum where someone had talked about making such a module, but s/he never followed up.</p>
+
+<p>Ultimately, I figured I’d roll my own. </p>
+
+<p><img class="emoji" title=":metal:" alt=":metal:" src="https://assets.github.com/images/icons/emoji/metal.png" height="20" width="20" align="absmiddle" /></p>
+
+<h2 id="some-of-the-things-are-fixed">Some Of The Things Are Fixed.</h2>
+
+<p>It was easy.</p>
+
+<p>Quill’s blog offers <a href="http://quilljs.com/blog/building-a-custom-module/">a good tutorial</a> on how to write modules for the editor, though <a href="http://quilljs.com/docs/modules/">the docs</a> seem to throw up a cautionary flag that Quill’s module interface may change going forward.</p>
+
+<p>Ye been warned.</p>
+
+<h2 id="not-bad-not-good-either-but-not-bad">Not Bad. Not Good, Either. But Not Bad.</h2>
+
+<p>A repo with instructions on how to implement <code>quill-placeholder</code> is <a href="https://github.com/brettimus/quill-placeholder">here</a>, in case anyone else runs into this problem.</p>
+
+<p>Something to look out for is that (especially if you’re using quill in a Form), you’ll need to filter out the placeholder text before form submission (or at least validate against it). I included a mini-scenario addressing this in the README.</p>
+
+<p>It’s not clean, but I never said it was going to be.</p>
+
+<p>We just wanted placeholder text, damnit.</p>
+
+        </div>        
+    </div>
+</body>
+</html>
