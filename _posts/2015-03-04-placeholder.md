@@ -5,27 +5,27 @@ title: "Writing a Placeholder Text Module for Quill.js"
 
 ## Everything Is Fine.
 
-We mighty devs at Switchboard are in week two of _Le Grand Redesign_ (which is very much _Un Grand Refacteur_ at this point). Things are going really smoothly. At least they are for me. At least they were for me. Until I got around to redoing our text editor.
+We mighty devs at Switchboard are in week two of *Le Grand Redesign* (read: a much anticipated *Refacteur*). Things are going really smoothly. _Too smoothly.)
 
-One thing I had to deal with was figuring out how to use placeholder text with Quill.js.
+One thing I had to deal with was figuring out how to use placeholder text with Quill.js, a rich text editor we've selected to replace our current headache of an editor.
 
 This is my story.
 
 ## Everything Is Broken.
 
-In the current, production version of Switchboard, we are using a Medium-style editor.
+Currently, Switchboard is using a [Medium-style editor](https://github.com/daviferreira/medium-editor).
 
-It is a nightmare. 
+It is a nightmare for us, because we have to support a fair amount of IE, and we also integrate [At.js](https://github.com/ichord/At.js) for mentions.
 
-It haunts my dreams :ghost:. 
+Our editor, as it stands now, haunts my dreams :ghost:. 
 
 It is the source of an untold number of support tickets.
 
-It must die. 
+It must die.
 
 ## Everything Might Not Be Broken.
 
-A few months back, I put [Quill.js](http://quilljs.com/) on our radar after listening to [this episode of javascript jabber](http://www.stitcher.com/podcast/ruby-rogues/javascript-jabber/e/134-jsj-quilljs-with-jason-chen-36034417), which interviews Jason Chen. 
+A few months back, I put [Quill.js](http://quilljs.com/) on our radar after listening to [an interview with Jason chen](http://www.stitcher.com/podcast/ruby-rogues/javascript-jabber/e/134-jsj-quilljs-with-jason-chen-36034417) on javascript jabber. 
 
 (If you create an issue or submit a PR on the [Quill repo](https://github.com/quilljs/quill), you'll likely end up talking to Jason.)
 
