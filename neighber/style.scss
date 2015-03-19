@@ -2,14 +2,19 @@
 @import url(//fonts.googleapis.com/css?family=Merriweather:400,300,400italic,300italic,700);
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 
-$white: rgb(245,245,245);
 $black: rgb(42,42,41);
+$blue-dark: rgb(56,72,90);
 $blue-gray: rgb(160, 180, 184);
 $tan: rgb(235,216,159);
+$white: rgb(245,245,245);
 
-$white-trans: rgba(245,245,245,.9);
-$black-trans: rgba(42,42,41, .3);
+$brown-dark: rgb(57,54,50);
+$green-dark: rgb(88,96,54);
+
+$black-trans-light: rgba(42,42,41, .1);
+$blue-dark-trans: rgba(56,72,90, .7);
 $tan-trans: rgba(235,216,159,.8);
+$white-trans: rgba(245,245,245,.9);
 
 
 $light: 300;
@@ -21,7 +26,8 @@ $sans-serif: Montserrat, sans-serif;
 
 html,
 body {
-  background: $tan-trans;
+  background: $blue-dark;
+  color: $tan;
   font-family: $serif;
   margin: 0;
   padding: 0;
@@ -33,38 +39,6 @@ h3 {
   font-family: $sans-serif;
 }
 
-
-// re: blurring
-//
-// try this approach, using content of before pseudoselector
-// .content:before {
-//   content: "";
-//   position: fixed;
-//   left: 0;
-//   right: 0;
-//   z-index: -1;
-  
-//   display: block;
-//   background-image: url('./horse.jpg');
-//   width: 1200px;
-//   height: 800px;
-  
-//   -webkit-filter: blur(5px);
-//   -moz-filter: blur(5px);
-//   -o-filter: blur(5px);
-//   -ms-filter: blur(5px);
-//   filter: blur(5px);
-// }
-
-// .content {
-//   position: fixed;
-//   left: 0;
-//   right: 0;
-//   z-index: 0;
-//   margin-left: 20px;
-//   margin-right: 20px;
-// }
-
 nav {
   background: rgba(255,255,255,.5);
   top: 0;
@@ -74,68 +48,36 @@ nav {
   position: absolute;
   right: 0;
   .brand {
-    padding: 5px;
+    padding: 10px;
   }
 }
 
 header {
+
+
+  background: url(./horse-med.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: $black-trans-light;
+  background-blend-mode: multiply;
   min-height: 450px;
+  padding: 40px 0 0 30px;
   position: relative;
-
-  .bg {
-    background: url(./horse.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
-    background-color: $black-trans;
-    background-blend-mode: multiply;
-    // -webkit-filter: blur(4px);
-    // -moz-filter: blur(4px);
-    // -o-filter: blur(4px);
-    // -ms-filter: blur(4px);
-    // filter: blur(4px);
-
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 0;
-  }
-
-  .fg {
-    background: transparent;
-    padding: 40px 0 20px 40px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-  }
-
   h1 {
-    font-size: 54px;
+    font-size: 36px;
     font-weight: $bold;
     letter-spacing: .01em;
-    line-height: 65px;
-    margin: 0;
-    padding: 40px 10px 10px 10px;
+    line-height: 48px;
     text-transform: uppercase;
-  }
-  p {
-    color: $tan;
-    display: inline-block;
-    font-size: 24px;
-    font-style: italic;
-    line-height: 42px;
-    padding: 15px;
-    text-shadow: 0 1px 1px $black;
   }
   .button {
     border: none;
     border-radius: 2px;
+    color: $blue-dark;
     display: block;
+    margin-top: 20px;
     &:hover {
       text-decoration: underline;
     }
@@ -146,52 +88,53 @@ header {
   margin: 0 auto;
   padding: 20px;
   position: relative;
+}
 
-  .featurette-wrap {
-    margin: 0 auto;
-    max-width: 1300px;
-  }
-  .featurette {
+.featurette-wrap {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.featurette {
+  box-sizing: border-box;
+  margin: 5px;
+  max-width: 400;
+  margin: 0 auto;
+  padding: 50px 40px 0 40px;
+  position: relative;
+  .icon {
+
     box-sizing: border-box;
-    float: left;
-    margin: 5px;
-    padding: 40px 40px 10px 60px;
-    position: relative;
-    width: 400px;
-    .icon {
-
-      box-sizing: border-box;
-      color: $blue-gray;
-      margin: 20px 0;
-      text-align: center;
-      width: 100%;
-      i {
-        border: solid 5px $blue-gray;
-        border-radius: 50em;
-        padding: 15px;
-      }
+    color: $tan-trans;
+    margin: 20px 0;
+    text-align: center;
+    width: 100%;
+    i {
+      border: solid 5px $tan-trans;
+      border-radius: 50em;
+      padding: 15px;
     }
-    h2 {
-      color: $black; // TODO -- more solid blue
-      font-size: 32px;
-      font-weight: normal;
-      margin: 10px 0;
-      text-align: center;
-      // text-transform: uppercase;
-    }
-    hr {
-      border-color: inherit;
-      margin: 15px auto 30px auto;
-      opacity: .2;
-    }
-    p {
-      font-size: 16px;
-      font-weight: $light;
-      line-height: 25px;
-      text-align: center;
-    }
+  }
+  h2 {
+    color: $tan;
+    font-size: 32px;
+    font-weight: normal;
+    margin: 10px 0;
+    text-align: center;
+    // text-transform: uppercase;
+  }
+  hr {
+    border-color: inherit;
+    margin: 15px auto 30px auto;
+    opacity: .2;
+  }
+  p {
+    font-size: 16px;
+    font-weight: $light;
+    line-height: 25px;
+    text-align: center;
   }
 }
+
 
 footer {
   background: $black;
@@ -209,10 +152,10 @@ footer {
   outline: none;
 
   &.button-large {
-    font-size: 28px;
-    height: 60px;
-    min-width: 130px;
-    padding: 12px 20px 20px 20px;
+    font-size: 22px;
+    height: 40px;
+    min-width: 95px;
+    padding: 8px 14px 14px 14px;
     text-align: center;
   }
 
@@ -243,4 +186,60 @@ footer {
 .infinity {
   font-size: 40px;
   line-height: 0;
+}
+
+/* iPad 3 (portrait) ----------- */
+@media only screen and (min-width : 768px) {
+  header {
+    background: url(./horse-lg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: $black-trans-light;
+    background-blend-mode: multiply;
+    padding: 50px;
+    h1 {
+        color: $black;
+        font-size: 52px;
+        letter-spacing: .01em;
+        line-height: 65px;
+      }
+      p {
+        font-size: 32px;
+        line-height: 42px;
+      }
+  }
+  .featurette {
+    font-size: 18px;
+    max-width: 400px;
+  }
+
+  .button {
+    &.button-large {
+      font-size: 28px;
+      height: 60px;
+      min-width: 130px;
+      padding: 12px 20px 20px 20px;
+      text-align: center;
+    }
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+  header {
+    padding: 70px;
+    h1 {
+      font-size: 68px;
+      line-height: 84px;
+    }
+    .button {
+      margin-top: 40px;
+    }
+  }
+  .featurette {
+    float: left;
+  }
+/* Styles */
 }

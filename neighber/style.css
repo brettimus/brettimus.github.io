@@ -3,7 +3,8 @@
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 html,
 body {
-  background: rgba(235, 216, 159, 0.8);
+  background: #38485a;
+  color: #ebd89f;
   font-family: Merriweather, serif;
   margin: 0;
   padding: 0; }
@@ -22,52 +23,31 @@ nav {
   position: absolute;
   right: 0; }
   nav .brand {
-    padding: 5px; }
+    padding: 10px; }
 
 header {
+  background: url(./horse-med.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: rgba(42, 42, 41, 0.1);
+  background-blend-mode: multiply;
   min-height: 450px;
+  padding: 40px 0 0 30px;
   position: relative; }
-  header .bg {
-    background: url(./horse.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-color: rgba(42, 42, 41, 0.3);
-    background-blend-mode: multiply;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 0; }
-  header .fg {
-    background: transparent;
-    padding: 40px 0 20px 40px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10; }
   header h1 {
-    font-size: 54px;
+    font-size: 36px;
     font-weight: 700;
     letter-spacing: .01em;
-    line-height: 65px;
-    margin: 0;
-    padding: 40px 10px 10px 10px;
+    line-height: 48px;
     text-transform: uppercase; }
-  header p {
-    color: #ebd89f;
-    display: inline-block;
-    font-size: 24px;
-    font-style: italic;
-    line-height: 42px;
-    padding: 15px;
-    text-shadow: 0 1px 1px #2a2a29; }
   header .button {
     border: none;
     border-radius: 2px;
-    display: block; }
+    color: #38485a;
+    display: block;
+    margin-top: 20px; }
     header .button:hover {
       text-decoration: underline; }
 
@@ -75,41 +55,43 @@ header {
   margin: 0 auto;
   padding: 20px;
   position: relative; }
-  .row .featurette-wrap {
-    margin: 0 auto;
-    max-width: 1300px; }
-  .row .featurette {
+
+.featurette-wrap {
+  margin: 0 auto;
+  max-width: 1200px; }
+
+.featurette {
+  box-sizing: border-box;
+  margin: 5px;
+  max-width: 400;
+  margin: 0 auto;
+  padding: 50px 40px 0 40px;
+  position: relative; }
+  .featurette .icon {
     box-sizing: border-box;
-    float: left;
-    margin: 5px;
-    padding: 40px 40px 10px 60px;
-    position: relative;
-    width: 400px; }
-    .row .featurette .icon {
-      box-sizing: border-box;
-      color: #a0b4b8;
-      margin: 20px 0;
-      text-align: center;
-      width: 100%; }
-      .row .featurette .icon i {
-        border: solid 5px #a0b4b8;
-        border-radius: 50em;
-        padding: 15px; }
-    .row .featurette h2 {
-      color: #2a2a29;
-      font-size: 32px;
-      font-weight: normal;
-      margin: 10px 0;
-      text-align: center; }
-    .row .featurette hr {
-      border-color: inherit;
-      margin: 15px auto 30px auto;
-      opacity: .2; }
-    .row .featurette p {
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 25px;
-      text-align: center; }
+    color: rgba(235, 216, 159, 0.8);
+    margin: 20px 0;
+    text-align: center;
+    width: 100%; }
+    .featurette .icon i {
+      border: solid 5px rgba(235, 216, 159, 0.8);
+      border-radius: 50em;
+      padding: 15px; }
+  .featurette h2 {
+    color: #ebd89f;
+    font-size: 32px;
+    font-weight: normal;
+    margin: 10px 0;
+    text-align: center; }
+  .featurette hr {
+    border-color: inherit;
+    margin: 15px auto 30px auto;
+    opacity: .2; }
+  .featurette p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 25px;
+    text-align: center; }
 
 footer {
   background: #2a2a29;
@@ -125,10 +107,10 @@ footer {
   font-family: Montserrat, sans-serif;
   outline: none; }
   .button.button-large {
-    font-size: 28px;
-    height: 60px;
-    min-width: 130px;
-    padding: 12px 20px 20px 20px;
+    font-size: 22px;
+    height: 40px;
+    min-width: 95px;
+    padding: 8px 14px 14px 14px;
     text-align: center; }
 
 .u-text-center {
@@ -149,5 +131,50 @@ footer {
 .infinity {
   font-size: 40px;
   line-height: 0; }
+
+/* iPad 3 (portrait) ----------- */
+@media only screen and (min-width: 768px) {
+  header {
+    background: url(./horse-lg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: rgba(42, 42, 41, 0.1);
+    background-blend-mode: multiply;
+    padding: 50px; }
+    header h1 {
+      color: #2a2a29;
+      font-size: 52px;
+      letter-spacing: .01em;
+      line-height: 65px; }
+    header p {
+      font-size: 32px;
+      line-height: 42px; }
+
+  .featurette {
+    font-size: 18px;
+    max-width: 400px; }
+
+  .button.button-large {
+    font-size: 28px;
+    height: 60px;
+    min-width: 130px;
+    padding: 12px 20px 20px 20px;
+    text-align: center; } }
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  header {
+    padding: 70px; }
+    header h1 {
+      font-size: 68px;
+      line-height: 84px; }
+    header .button {
+      margin-top: 40px; }
+
+  .featurette {
+    float: left; }
+
+  /* Styles */ }
 
 /*# sourceMappingURL=style.css.map */
