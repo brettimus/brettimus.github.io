@@ -13,6 +13,17 @@ h2,
 h3 {
   font-family: Montserrat, sans-serif; }
 
+nav {
+  background: rgba(255, 255, 255, 0.5);
+  top: 0;
+  font-family: Merriweather, serif;
+  font-style: italic;
+  left: 0;
+  position: absolute;
+  right: 0; }
+  nav .brand {
+    padding: 5px; }
+
 header {
   min-height: 450px;
   position: relative; }
@@ -54,22 +65,11 @@ header {
     padding: 15px;
     text-shadow: 0 1px 1px #2a2a29; }
   header .button {
-    background: rgba(235, 216, 159, 0.8);
     border: none;
     border-radius: 2px;
     display: block; }
     header .button:hover {
       text-decoration: underline; }
-  header nav {
-    background: rgba(255, 255, 255, 0.5);
-    top: 0;
-    font-family: Merriweather, serif;
-    font-style: italic;
-    left: 0;
-    position: absolute;
-    right: 0; }
-    header nav .brand {
-      padding: 5px; }
 
 .row {
   margin: 0 auto;
@@ -106,10 +106,15 @@ header {
       margin: 15px auto 30px auto;
       opacity: .2; }
     .row .featurette p {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 300;
       line-height: 25px;
       text-align: center; }
+
+footer {
+  background: #2a2a29;
+  min-height: 200px;
+  width: 100%; }
 
 .button {
   background: #ebd89f;
@@ -123,7 +128,7 @@ header {
     font-size: 28px;
     height: 60px;
     min-width: 130px;
-    padding: 10px 20px 20px 20px;
+    padding: 12px 20px 20px 20px;
     text-align: center; }
 
 .u-text-center {
@@ -137,6 +142,9 @@ header {
 
 .inset {
   box-shadow: inset 0 0 10px #2a2a29; }
+
+.inset-large {
+  box-shadow: inset 0 0 30px #2a2a29; }
 
 .infinity {
   font-size: 40px;
