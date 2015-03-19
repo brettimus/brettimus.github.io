@@ -65,6 +65,19 @@ h3 {
 //   margin-right: 20px;
 // }
 
+nav {
+  background: rgba(255,255,255,.5);
+  top: 0;
+  font-family: $serif;
+  font-style: italic;
+  left: 0;
+  position: absolute;
+  right: 0;
+  .brand {
+    padding: 5px;
+  }
+}
+
 header {
   min-height: 450px;
   position: relative;
@@ -120,24 +133,11 @@ header {
     text-shadow: 0 1px 1px $black;
   }
   .button {
-    background: $tan-trans;
     border: none;
     border-radius: 2px;
     display: block;
     &:hover {
       text-decoration: underline;
-    }
-  }
-  nav {
-    background: rgba(255,255,255,.5);
-    top: 0;
-    font-family: $serif;
-    font-style: italic;
-    left: 0;
-    position: absolute;
-    right: 0;
-    .brand {
-      padding: 5px;
     }
   }
 }
@@ -185,12 +185,18 @@ header {
       opacity: .2;
     }
     p {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: $light;
       line-height: 25px;
       text-align: center;
     }
   }
+}
+
+footer {
+  background: $black;
+  min-height: 200px;
+  width: 100%;
 }
 
 .button {
@@ -206,7 +212,7 @@ header {
     font-size: 28px;
     height: 60px;
     min-width: 130px;
-    padding: 10px 20px 20px 20px;
+    padding: 12px 20px 20px 20px;
     text-align: center;
   }
 
@@ -228,6 +234,10 @@ header {
 
 .inset {
   box-shadow: inset 0 0 10px $black;
+}
+
+.inset-large {
+  box-shadow: inset 0 0 30px $black;
 }
 
 .infinity {
