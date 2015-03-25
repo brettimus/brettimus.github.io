@@ -26,8 +26,19 @@ nav {
     font-family: "Poiret One", cursive;
     font-size: 24px;
     opacity: .7;
-    padding: 0 0 6px 50px;
+    padding: 0 0 6px 35px;
     vertical-align: middle; }
+    nav p::after {
+      background: url(/gifs/fireworks-small.gif);
+      border-radius: 50em;
+      content: "";
+      height: 65px;
+      opacity: 0.2;
+      position: absolute;
+      left: 30;
+      top: 10;
+      width: 65px;
+      z-index: 1; }
 
 .container {
   background-color: rgba(255, 233, 41, 0.9);
@@ -66,17 +77,6 @@ nav {
   color: #0a0a0a;
   display: block;
   position: relative; }
-  .leaf-top::after {
-    background: url(./fireworks-small.gif);
-    border-radius: 50em;
-    content: "";
-    height: 80px;
-    opacity: 0.04;
-    position: absolute;
-    right: 25;
-    top: 25;
-    width: 80px;
-    z-index: 1; }
   .leaf-top h1 {
     font-family: "Poiret One", cursive;
     font-size: 52px;
@@ -87,8 +87,8 @@ nav {
     .leaf-top h1 i {
       font-style: normal; }
   .leaf-top p {
-    color: rgba(38, 38, 38, 0.7);
-    font-size: 24px;
+    color: rgba(38, 38, 38, 0.86);
+    font-size: 26px;
     font-weight: 300;
     padding: 4px 2px;
     margin-bottom: 50px;

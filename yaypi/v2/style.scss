@@ -16,7 +16,7 @@ $yellow-trans: rgba(255, 233, 41, .9);
 $blue: rgba(85, 41, 255, 1);
 
 $black: rgba(38,38,38,1);
-$black-trans: rgba(38,38,38,.7);
+$black-trans: rgba(38,38,38,.86);
 
 $white-trans: rgba(255,255,255,.86);
 
@@ -52,8 +52,21 @@ nav {
     font-family: $cursive;
     font-size: 24px;
     opacity: .7;
-    padding: 0 0 6px 50px;
+    padding: 0 0 6px 35px;
     vertical-align: middle;
+
+    &::after {
+      background: url(/gifs/fireworks-small.gif);
+      border-radius: 50em;
+      content: "";
+      height: 65px;
+      opacity: 0.2;
+      position: absolute;
+      left: 30;
+      top: 10;
+      width: 65px;
+      z-index: 1;
+    }
   }
 }
 
@@ -103,19 +116,6 @@ nav {
   display: block;
   position: relative;
 
-  &::after {
-    background: url(./fireworks-small.gif);
-    border-radius: 50em;
-    content: "";
-    height: 80px;
-    opacity: 0.04;
-    position: absolute;
-    right: 25;
-    top: 25;
-    width: 80px;
-    z-index: 1;
-  }
-
   h1 {
     font-family: $cursive;
     font-size: 52px;
@@ -131,7 +131,7 @@ nav {
 
   p {
     color: $black-trans;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 300;
     padding: 4px 2px;
     margin-bottom: 50px;
