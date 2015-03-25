@@ -78,7 +78,7 @@
 
         .leaf-top::after {
           content: "";
-          background: url(/fireworks.gif);
+          background: url(/gifs/fireworks.gif);
           opacity: 0.05;
           bottom: 0;
           top: 0;

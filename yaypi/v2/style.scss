@@ -1,5 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Poiret+One);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,700,600);
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css)
+@import url(//fonts.googleapis.com/css?family=Poiret+One);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,700,600);
 
 $sans-serif: "Helvetica-Neue", 'Open Sans', sans-serif;
 $cursive: 'Poiret One', cursive;
@@ -10,7 +11,7 @@ $orange-light: rgba(255, 138, 89, 1);
 $red: rgba(232, 34, 0, 1);
 
 $yellow: rgba(255, 233, 41, 1);
-$yellow-trans: rgba(255, 233, 41, .9);
+$yellow-trans: rgba(255, 233, 41, .8);
 
 
 $blue: rgba(85, 41, 255, 1);
@@ -71,7 +72,12 @@ nav {
 }
 
 .container {
-  background-color: $yellow-trans;
+  background-image:
+    radial-gradient(
+      circle,
+      $yellow,
+      $yellow-trans
+    );
   box-size:border-box;
   border-top: solid 4px #ccc;
   border-bottom: solid 4px #ccc;
@@ -103,7 +109,7 @@ nav {
       padding: 100px 65px;
     }
     &.leaf-top {
-      background: $yellow;
+      // background: $yellow;
       padding: 65px 65px 75px 65px;
     }
   }
