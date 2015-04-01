@@ -52,9 +52,9 @@ nav {
 
 .container {
   background-image: radial-gradient(circle, #ffe929, rgba(255, 233, 41, 0.8));
-  box-size: border-box;
-  border-top: solid 4px #ccc;
-  border-bottom: solid 4px #ccc;
+  box-sizing: border-box;
+  border-top: solid 4px #ddd;
+  border-bottom: solid 4px #ddd;
   width: 100%;
   margin: 0;
   padding: 0; }
