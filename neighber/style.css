@@ -42,15 +42,15 @@ header {
     font-weight: 700;
     letter-spacing: .01em;
     line-height: 48px;
+    margin: 30px 0;
     text-transform: uppercase; }
   header .button {
     border: none;
     border-radius: 2px;
     color: #38485a;
     display: block;
+    font-size: 18px;
     margin-top: 20px; }
-    header .button:hover {
-      text-decoration: underline; }
 
 .row {
   margin: 0 auto;
@@ -108,10 +108,10 @@ footer {
   font-family: Montserrat, sans-serif;
   outline: none; }
   .button.button-large {
-    font-size: 22px;
+    font-size: 20px;
     height: 40px;
     min-width: 95px;
-    padding: 8px 14px 14px 14px;
+    padding: 8px 18px 14px 18px;
     text-align: center; }
 
 .u-text-center {
@@ -177,5 +177,14 @@ footer {
     float: left; }
 
   /* Styles */ }
+@media only screen and (min-width: 320px) and (max-width: 414px) {
+  header {
+    background: url(./horse-sm.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: rgba(42, 42, 41, 0.1);
+    background-blend-mode: multiply; } }
 
 /*# sourceMappingURL=style.css.map */
