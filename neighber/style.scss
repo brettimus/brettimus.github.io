@@ -53,8 +53,6 @@ nav {
 }
 
 header {
-
-
   background: url(./horse-med.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -86,7 +84,7 @@ header {
 
 .row {
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 0 80px;
   position: relative;
 }
 
@@ -102,7 +100,6 @@ header {
   padding: 50px 40px 0 40px;
   position: relative;
   .icon {
-
     box-sizing: border-box;
     color: $tan-trans;
     margin: 20px 0;
@@ -133,6 +130,11 @@ header {
     line-height: 25px;
     text-align: center;
   }
+  .low-contrast {
+    color: #bbb;
+    font-size: 14px;
+    opacity: .72;
+  }
 }
 
 
@@ -162,6 +164,8 @@ footer {
   &.button-primary {
   }
 }
+
+
 
 .u-text-center {
   text-align: center;
