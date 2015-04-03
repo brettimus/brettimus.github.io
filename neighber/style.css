@@ -54,7 +54,7 @@ header {
 
 .row {
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 0 80px;
   position: relative; }
 
 .featurette-wrap {
@@ -93,6 +93,10 @@ header {
     font-weight: 300;
     line-height: 25px;
     text-align: center; }
+  .featurette .low-contrast {
+    color: #bbb;
+    font-size: 14px;
+    opacity: .72; }
 
 footer {
   background: #2a2a29;
