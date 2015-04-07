@@ -5,9 +5,11 @@ title: "Writing a Placeholder Text Module for Quill.js"
 
 ## Everything Is Fine.
 
-We mighty devs at Switchboard are in week two of *Le Grand Redesign* (read: a much anticipated *Refacteur*). Things are going really smoothly. _Too smoothly.)
+We mighty devs at Switchboard are in week two of *Le Grand Redesign* (read: a much anticipated *Refacteur*). Things are going really smoothly. 
 
-One thing I had to deal with was figuring out how to use placeholder text with Quill.js, a rich text editor we've selected to replace our current headache of an editor.
+_Too smoothly._
+
+That is, things were going _too smoothly_ until this week, when I had to deal with using placeholder text in Quill.js, a lovely little rich text editor with a nice-to-play-with API.
 
 This is my story.
 
@@ -15,35 +17,29 @@ This is my story.
 
 Currently, Switchboard is using a [Medium-style editor](https://github.com/daviferreira/medium-editor).
 
-It is a nightmare for us, because we have to support a fair amount of IE, and we also integrate [At.js](https://github.com/ichord/At.js) for mentions.
+It is a nightmare for us, because the editor flat-out does not work in IE or Safari.
 
-Our editor, as it stands now, haunts my dreams :ghost:. 
+As it stands, our editor haunts my dreams :ghost:. 
 
 It is the source of an untold number of support tickets.
 
-It must die.
+It. Must. :fire:.
 
 ## Everything Might Not Be Broken.
 
-A few months back, I put [Quill.js](http://quilljs.com/) on our radar after listening to [an interview with Jason chen](http://www.stitcher.com/podcast/ruby-rogues/javascript-jabber/e/134-jsj-quilljs-with-jason-chen-36034417) on javascript jabber. 
+A few months back, I put [Quill.js](http://quilljs.com/) on our radar after listening to [an interview with Jason Chen](http://www.stitcher.com/podcast/ruby-rogues/javascript-jabber/e/134-jsj-quilljs-with-jason-chen-36034417) on the Javascript Jabber podcast. 
 
-(If you create an issue or submit a PR on the [Quill repo](https://github.com/quilljs/quill), you'll likely end up talking to Jason.)
+(NB: If you create an issue or submit a PR on the [Quill repo](https://github.com/quilljs/quill), you'll likely end up talking to Jason.)
 
 Quill is not stable yet (v. 0.19.3 at the time of this writing), but it has made some massive improvements in the past few months, the biggest of which was removal of their iframe dependency.
 
-Of course, I was a dumb, and I started out using an older version of Quill. Because Switchboard runs on Rails (toot toot!), I went straight to the first asset gem I could find. It was out of date :disappointed:.
+Of course, I was a dumb, and I started out accidentally using an older version of Quill that relied on iframes. (Thanks a lot, outdated asset gem!)
 
-I wrote our first pass at a customized editor having to deal with all the attendant awfulness that iframes come with. But thus is life. I got good practice with sending messages to and from an iframe with `window.PostMessage`. Learning occurred. I'm over it. I hope you don't have to do the same.
+Consequently, I wrote our first pass at an editor while having to deal with all the attendant awfulness of iframes. But thus is life. I got good practice with sending messages to and from an iframe with `window.PostMessage`. Learning occurred. I'm over it. I hope you don't have to do the same in your life.
 
 ## Everything Is Still Kind-Of Broken.
 
-Now, about this redesign. 
-
-We had the fortune of a code-savvy freelance designer, so most of our initial work has been converting his `haml` to `erb` (thanks be to [this site](https://haml2erb.org/)) and plugging our app's view logic into his beautiful templates.
-
-I had to add a few hacky styles to get our Quill editor to look like the textareas in his designs. (This was much easier once I redid the editor _without_ the iframe dependency.)
-
-We ran into a bit of a bump with placeholder text, though. I saw one post on a forum where someone had talked about making such a module, but s/he never followed up.
+I ran into a bit of a bump with implementing placeholder text. I saw one post on a forum where one human had talked about making such a module, but s/z/he never followed up.
 
 Ultimately, I figured I'd roll my own. 
 
@@ -51,9 +47,9 @@ Ultimately, I figured I'd roll my own.
 
 ## Some Of The Things Are Fixed.
 
-It was easy.
+It was easy!
 
-Quill's blog offers [a good tutorial](http://quilljs.com/blog/building-a-custom-module/) on how to write modules for the editor, though [the docs](http://quilljs.com/docs/modules/) seem to throw up a cautionary flag that Quill's module interface may change going forward.
+Quill's blog offers [a good tutorial](http://quilljs.com/blog/building-a-custom-module/) on how to write modules for the editor, though I should mention that [the docs](http://quilljs.com/docs/modules/) seem to throw up a cautionary flag that Quill's module interface may change going forward.
 
 Ye been warned.
 
