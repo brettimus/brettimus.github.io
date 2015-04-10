@@ -1,0 +1,47 @@
+@import url(http://fonts.googleapis.com/css?family=Archivo+Black);
+@import url(http://fonts.googleapis.com/css?family=Slabo+13px);
+
+$sans-serif: "Archivo Black", sans-serif;
+$serif: "Slabo 13px", serif;
+
+html {
+  background: url(./girl-with-feathers.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  font-family: $sans-serif;
+}
+
+header {
+  padding: 20px 60px;
+}
+
+h1 {
+  color: #3d0c02;
+  font-family: $serif;
+  font-size: 64px;
+
+  &.sub {
+    // color: 
+    font-size: 48px;
+  }
+}
+
+form {
+  padding: 40px;
+  text-align: center;
+  input[type="email"] {
+    border: 0;
+    border-radius: 3px;
+    outline: none;
+    padding: 0 10px;
+    font-size: 24px;
+    min-height: 50px;
+    min-width: 300px;
+    opacity: .85;
+  }
+}
