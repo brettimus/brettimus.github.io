@@ -1,0 +1,3 @@
+[submodule "super-hearts"]
+	path = super-hearts
+	url = https://github.com/brettimus/super-hearts.git
