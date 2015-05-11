@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JS: Meeting Needs</title>
+  <link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
+  <style>
+    html, body {
+      background: #f5f5f5;
+      color: #222;
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Nixie One', cursive;
+      font-size: 100px;
+      margin-bottom: 20px;
+      padding: 100px 80px 0 80px;
+      z-index: 1;
+    }
+    p {
+      color: #666;
+      font-style: italic;
+      margin: 0;
+      padding: 0;
+    } 
+    img {
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>javascript</h1>
+  <p>it meets my needs</p>
+  <script src="super-hearts.min.js"></script>
+  <script>
+    var geyserConfig = {
+        geyserInterval: 800,
+        heartsCount: [20, 30],
+        opacityRange: [0.02, 0.15],
+        scalarRange: [.8, 1.2],
+        translateXRange: [-400, 400],
+        translateYRange: [-600, 600],
+        transitionDuration: 2200,
+    };
+    var geyser = SuperHearts.Geyser(geyserConfig);
+  </script>
+</body>
+</html>
