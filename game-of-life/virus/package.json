@@ -1,0 +1,50 @@
+{
+  "name": "game-of-life-d3-boots",
+  "author": {
+    "name": "boots"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-qunit": "~0.5.2",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-browserify": "~3.8.0"
+  },
+  "version": "0.2.0",
+  "description": "conway's game of life with a small bit of interactivity. an observer can click on a square to \"infect\" it (turn its living color to red). then, whenever that cell is live, it will \"infect\" its living neighbors",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "d3": "~3.5.5",
+    "es6-promise": "~2.1.1",
+    "grunt": "~0.4.5",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-qunit": "~0.5.2",
+    "grunt-contrib-uglify": "~0.5.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-browserify": "~3.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "conway",
+    "game of life",
+    "infection",
+    "d3",
+    "boots"
+  ],
+  "license": "MIT",
+  "readme": "# Game of Life with a Virus\n## Summary \n\nThis is Conway's Game of Life with a small bit of interactivity.\n\nAn observer can click on a square to \"infect\" it, which turn its living color into a semi-transparent red.\n\nThen, whenever the infected cell is live, it will in turn infect its living neighbors.\n\nThe only cure to the virus is clicks!!!\n\n## To run\nOpen `dist/index.html` in a browser and start clickin'. \nIf you go into the console, there are two global vars exposed so you can go to town. \n\n1. `svg` is a d3 selection of the svg element on the page\n2. `sim` is the simulation object. see `src/simulation.js` if you want to use it's (not at all finalized) interface.\n\n\n## TODO\n* jsdoc comments are a bit out of whack\n* there's cruft everywhere\n* zomg tests",
+  "readmeFilename": "README.md",
+  "_id": "game-of-life-d3-boots@0.2.0",
+  "_shasum": "415a4468494d28755947c912fadbc8d7e21e2d15",
+  "_from": "game-of-life-d3-boots@*"
+}
