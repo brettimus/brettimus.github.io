@@ -1,0 +1,24 @@
+{
+  "name": "mandelbrot-set-boots",
+  "version": "0.0.1",
+  "description": "## Usage SVG version is borked. Use canvas: ```javascript canvasMandelbrot(0, 0, 1, {scale: 30, width: 300, height: 300, translateX: 100, translateY: 100}); ```",
+  "main": "mandelbrot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mandelbrot",
+    "canvas"
+  ],
+  "author": {
+    "name": "boots",
+    "email": "brbeut@gmail.com",
+    "url": "http://brettim.us/"
+  },
+  "license": "MIT",
+  "readme": "# Mandelbrot Set\n\n## Usage\nSVG version is borked. Use canvas:\n```javascript\ncanvasMandelbrot(0, 0, 1, {scale: 30, width: 300, height: 300, translateX: 100, translateY: 100});\n```\n\n## Options\n### left\n### top\n### width\n### translateX\nnumber of pixels to horizontally translate drawn image\n### translateY\nnumber of pixels to vertically translate drawn image\n### scale\nscales `width`\n### countMax\nnumber of iterations of inner-most loop (which calculates generations for a given x,y coord)\n\n\n## Possible Exercises\n* Refactor the duplicated code that assigns defaults in `svgMandelbrot` and `canvasMandelbrot`. Try using a polyfill for [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#polyfill).\n* Rewrite the algorithm using an OO approach. Profile your new OO code against the original implementation.\n* Why does the SVG rendition suck so much? Is there anything we can do? What if we iterated by steps of size 2 from 1 to 150?\n* How can we dynamically calculate a translation of the figure so it is in the center of the page?\n\n## Errata\nThe algorithm (as provided in new turing omnibus) refers to the variables `x` and `y`. By this is meant `zx` and `zy`.\n\n\n## Object.assign\nif (!Object.assign) {\n  Object.defineProperty(Object, 'assign', {\n    enumerable: false,\n    configurable: true,\n    writable: true,\n    value: function(target, firstSource) {\n      'use strict';\n      if (target === undefined || target === null) {\n        throw new TypeError('Cannot convert first argument to object');\n      }\n\n      var to = Object(target);\n      for (var i = 1; i < arguments.length; i++) {\n        var nextSource = arguments[i];\n        if (nextSource === undefined || nextSource === null) {\n          continue;\n        }\n        nextSource = Object(nextSource);\n\n        var keysArray = Object.keys(Object(nextSource));\n        for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {\n          var nextKey = keysArray[nextIndex];\n          var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);\n          if (desc !== undefined && desc.enumerable) {\n            to[nextKey] = nextSource[nextKey];\n          }\n        }\n      }\n      return to;\n    }\n  });\n}",
+  "readmeFilename": "README.md",
+  "_id": "mandelbrot-set-boots@0.0.1",
+  "_shasum": "531a903748f1445a31cef650f8302eeed69b37de",
+  "_from": "mandelbrot-set-boots@*"
+}
