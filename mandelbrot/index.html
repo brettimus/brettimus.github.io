@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mandelbrot Set on Canvas</title>
+  <style>
+    html, body {
+      color: #222;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+    body {
+       font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+       font-weight: 300;
+       width: 100%;
+    }
+    h1 {
+       font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+       font-size: 36px;
+       font-weight: 300; 
+       margin: 60px 0 40px 0;
+       text-align: center;
+    }
+    canvas {
+      marign: 0 auto;
+    }
+    svg,
+    svg rect {
+      shape-rendering: crispEdges;
+    }
+  </style>
+</head>
+<body>
+  <h1>sup, mandelbrot?</h1>
+  <script src="./bower_components/d3/d3.js"></script>
+  <script src="./mandelbrot.js"></script>
+  <script>
+    var w = .8*window.innerWidth || 500,
+        h = .8*window.innerHeight || 500;
+    canvasMandelbrot(0, 0, 1, {scale: 100, width: w, height: h, translateX: 100, translateY: 100});
+  </script>
+</body>
+</html>
