@@ -13,8 +13,14 @@ Get out of my house.
 
 ## Reverse-Chronological List of Projects 
 
-### [Google Fonts CLI](http://brettim.us/google-fonts-cli/lp)
+### [Google Fonts CLI](https://github.com/brettimus/google-fonts-cli/)
 
-### [Game of Life with a Virus](http://brettim.us/game-of-life/virus/dist)
+[The landing page is here](http://brettim.us/google-fonts-cli/lp), 
+but you're better off looking at the README if you want to use the 
+actual command line tool.
+
+### [Game of Life with a Virus](http://github.com/brettimus/game-of-life/virus/dist)
+[A live example lives here.](http://brettim.us/game-of-life/virus/dist)
+(See what I did there?)
 
 ### []

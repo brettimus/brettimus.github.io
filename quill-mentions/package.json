@@ -32,6 +32,7 @@
   "readmeFilename": "README.md",
   "gitHead": "73f3b42007a0fac1626dfb8963b9ea4404a4e1c2",
   "_id": "quill-mentions@0.1.3",
-  "_shasum": "7a1ac6d7ca119af4349d72d71af955be5755c1dc",
-  "_from": "quill-mentions@*"
+  "_shasum": "1bb95bffc2320e360b38ff47a410e224a4a5baed",
+  "_from": "quill-mentions",
+  "_resolved": "file:quill-mentions"
 }
