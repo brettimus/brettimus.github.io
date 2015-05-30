@@ -1,6 +1,6 @@
 {
   "name": "google-fonts-cli",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "a quick way to add a google font to your project",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,11 +27,27 @@
   "bin": {
     "gfi": "index.js"
   },
-  "readme": "# :construction: google-fonts-cli\n**_Still Under Construction! Please come back later_**\n\nA simple tool for adding google fonts on the fly.\n\n## Installation\n```\nnpm install -g gfi\n```\n\n## Usage\n\n```\ngfi /path/to/file.html FontName FontVariant1 FontVariant2\n```\n\n** For Example**\n```\ngfi ./index.html Lato 300\n```\n\n## Ideal Usage\n```\ngfi GIVEMEPRETTYFONTS --NOW\n```\n\n## In the Works\n* Random Font Selection\n* Sensible defaults\n* Simpler options parsing (or.. ya know. options parsing in general)\n\n## TODO\n* Remove relative paths from calls to `fs`\n* ~~get google font info~~\n* Parse font variants as tuples\n* ~~Preserve original document's indentation~~ ( a little buggy but almost there )\n* Optimize stuff that says it needs to be opmtimized\n* Hammer out interface\n* ~~Refactor into objects~~\n* Reuse code in the browser\n* Arg parser\n* Figure out how to treat spaces in font names on the command lines\n* PROFIT",
-  "readmeFilename": "README.md",
-  "gitHead": "dafcf66f6c591d007b929cf0adfa88e7e251b36c",
+  "gitHead": "465d318d33bb13cf428754a3f8634508a756e456",
   "homepage": "https://github.com/brettimus/google-fonts-cli#readme",
-  "_id": "google-fonts-cli@0.2.1",
-  "_shasum": "f90e8072dcca950a82241552a892a3163a5a1ca9",
-  "_from": "google-fonts-cli@*"
+  "_id": "google-fonts-cli@0.2.3",
+  "_shasum": "4e328d04aed84a4890b46941dce0b8bb935210c4",
+  "_from": "google-fonts-cli@*",
+  "_npmVersion": "2.10.0",
+  "_nodeVersion": "0.12.2",
+  "_npmUser": {
+    "name": "brettimus",
+    "email": "brbeut@gmail.com"
+  },
+  "dist": {
+    "shasum": "4e328d04aed84a4890b46941dce0b8bb935210c4",
+    "tarball": "http://registry.npmjs.org/google-fonts-cli/-/google-fonts-cli-0.2.3.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "brettimus",
+      "email": "brbeut@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/google-fonts-cli/-/google-fonts-cli-0.2.3.tgz"
 }

@@ -8,7 +8,7 @@ module.exports = FontCollection;
  */
 function FontCollection(data) {
     this.FONTS = data.items;
-}
+} 
 
 /** currently only searches for family */
 FontCollection.prototype.find = function(options) {
@@ -22,14 +22,16 @@ FontCollection.prototype.find = function(options) {
 };
 
 FontCollection.prototype.random = function(category, variants) {
-    var fonts = this.FONTS;
+    var fonts = [];
     // TODO - refactor. can this in one pass instead of two
+    // TODO - resolve whether the parameters are treated as "and" or "or"w
     if (variants) {
-        fonts = fonts.filter(_fontVariantFilter);
+        fonts = this.FONTS.filter(_fontVariantFilter);
     }
     if (category) {
         fonts = fonts.concat(this.FONTS.filter(_fontCategoryFilter));
     }
+    if (fonts.length === 0) fonts = this.FONTS;
     return B.array.randomInArray(fonts);
 
     function _fontCategoryFilter(font) {
