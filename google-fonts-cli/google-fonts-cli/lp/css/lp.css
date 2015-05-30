@@ -1,0 +1,117 @@
+/* http://coolors.co/app/2b193d-2c365e-484d6d-4b8f8c-c5979d */
+
+html, 
+body {
+    color: #222;
+}
+
+header {
+    background: #fff;
+    padding: 60px 20px 20px 20px;
+    width: 100%;
+}
+
+.font-table {
+    display: table;
+    margin-left: 50px;
+    /*width: 100%;*/
+}
+
+/* for 'wireframing' */
+/*.font-table * {
+    border: solid thin #959595;
+}*/
+
+.font-table .row {
+    box-sizing: border-box;
+    display: table;
+    min-height: 120px;
+    padding: 15px 25px 20px 40px;
+}
+
+.font-table .row .cell {
+  box-sizing: border-box;
+  display: table-cell;
+  height: 165px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.font-table .row .font {
+    color: #666;
+    opacity: .86;
+    text-align: left;
+    width: 165px;
+}
+
+.font-table .row .font a {
+    color: #484D6D;
+    display: block;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.font-table .row .font small {
+    color: #959595;
+    font-family: Lato, sans-serif;
+    font-size: 15px;
+    margin: 10px;
+}
+
+.font-table .row .example {
+    font-size: 52px;
+    min-width: 220px;
+    padding: 30px 15px 60px 40px;
+}
+
+
+
+.text-lobster {
+    font-family: Lobster, cursive;
+}
+.text-lato {
+    font-family: Lato, sans-serif;
+}
+
+.container {
+    padding-top: 40px;
+    text-align: center;
+}
+.boots-flat-button {
+  background: #4B8F8C;
+  border: 0;
+  border-bottom: solid 3px #2C365E;
+  border-radius: 10em;
+  box-sizing: border-box;
+  color: #C5979D;
+  cursor: pointer;
+  font-family: Lobster, cursive;
+  font-size: 32px;
+  height: 85px;
+  line-height: 60px;
+  overflow: hidden;
+  padding: 8px 32px 24px 32px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 #fff,
+                -1px -1px 0 #fff,
+                1px -1px 0 #fff,
+                -1px 1px 0 #fff;
+  transition: background .3s cubic-bezier(0.31, 0.13, 0.36, 1);
+}
+.boots-flat-button:hover {
+  color: #fff;
+  text-shadow: 1px 1px 0 #c5979d,
+              -1px -1px 0 #c5979d,
+              1px -1px 0 #c5979d,
+              -1px 1px 1px #c5979d;
+
+  transition: color .4s cubic-bezier(0.31, 0.13, 0.36, 1);
+}
+.boots-flat-button:focus {
+    box-shadow: 1px 1px 1px #888,
+                -1px -1px 1px #888,
+                1px -1px 1px #666,
+                -1px 1px 1px #666;
+    outline: none;
+}
