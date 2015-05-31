@@ -92,8 +92,6 @@ header {
       .projects ul li small {
         font-size: 14px;
         opacity: .91; }
-      .projects ul li:nth-child(even) {
-        background: #dae3e5; }
 
 .text-center {
   text-align: center; }

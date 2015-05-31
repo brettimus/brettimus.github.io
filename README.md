@@ -13,6 +13,8 @@ Get out of my house.
 
 ## Reverse-Chronological List of Projects 
 
+### [Quill Mentions](https://github.com/brettimus/quill-mentions/)
+
 ### [Google Fonts CLI](https://github.com/brettimus/google-fonts-cli/)
 
 [The landing page is here](http://brettim.us/google-fonts-cli/lp), 
@@ -23,4 +25,3 @@ actual command line tool.
 [A live example lives here.](http://brettim.us/game-of-life/virus/dist)
 (See what I did there?)
 
-### []
