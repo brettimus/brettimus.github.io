@@ -1,0 +1,127 @@
+html,
+body {
+  color: rgba(9, 19, 35, 0.8); }
+
+h1,
+h2 {
+  color: #04080F; }
+
+h2 {
+  font-size: 24px; }
+
+a {
+  color: #507dbc;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto; }
+
+.container-padded {
+  padding: 10px; }
+
+.boots-column {
+  padding-bottom: 40px; }
+
+.icon {
+  height: 30px;
+  margin: 10px 5px 0 10px; }
+
+.icon.icon-boots {
+  transform: scale(-1, 1); }
+
+header {
+  background: #fff;
+  padding: 45px; }
+  header h1 {
+    font-family: sans-serif;
+    font-size: 42px;
+    line-height: 60px;
+    max-width: 680px; }
+    header h1 .icon {
+      height: 60px;
+      opacity: .25; }
+    header h1 small {
+      color: rgba(9, 19, 35, 0.8);
+      display: block;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 21px; }
+      header h1 small span {
+        color: rgba(13, 25, 47, 0.7);
+        display: block;
+        font-size: 11px;
+        font-weight: 300;
+        line-height: 17px; }
+        header h1 small span small {
+          color: rgba(16, 32, 59, 0.6);
+          display: block;
+          font-size: 9px;
+          font-weight: 300;
+          line-height: 13px; }
+
+.under-construction h2 {
+  text-align: center; }
+.under-construction p {
+  font-size: 12px;
+  line-height: 16px;
+  max-width: 360px;
+  margin: 5px auto;
+  text-align: center; }
+
+.projects {
+  margin: 0 auto;
+  max-width: 600px;
+  padding-top: 40px; }
+  .projects ul {
+    list-style-type: none;
+    padding-left: 0; }
+    .projects ul li {
+      background: #fff;
+      border: solid 1px #dae3e5;
+      box-sizing: border-box;
+      font-size: 18px;
+      min-height: 65px;
+      margin: 0 auto 8px auto;
+      padding-top: 18px;
+      text-align: center;
+      width: 260px; }
+      .projects ul li small {
+        font-size: 14px;
+        opacity: .91; }
+      .projects ul li:nth-child(even) {
+        background: #dae3e5; }
+
+.text-center {
+  text-align: center; }
+
+@media only screen and (min-width: 480px) {
+  .container-padded {
+    padding: 30px 30px 40px 60px; }
+
+  h2 {
+    font-size: 28px; }
+
+  header {
+    padding-top: 65px; }
+    header h1 {
+      font-size: 62px;
+      line-height: 80px; }
+      header h1 small {
+        font-size: 28px;
+        line-height: 42px; }
+        header h1 small span {
+          font-size: 16px;
+          line-height: 22px; }
+
+  .under-construction h2 {
+    margin: 0 15px;
+    text-align: center; }
+  .under-construction p {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 8px auto; } }
+
+/*# sourceMappingURL=style.css.map */

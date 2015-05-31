@@ -1,0 +1,187 @@
+// http://coolors.co/app/04080f-507dbc-a1c6ea-bbd1ea-dae3e5
+
+// Colors
+$black: #04080F;
+$black-light: transparentize(lighten($black, 5%), .2);
+$white: #fff;
+
+$blue: #507dbc;
+$peri: #a1c6ea;
+$blue-gray: #bbd1ea;
+$white-gray: #dae3e5;
+
+// Typography
+$sans-serif: sans-serif;
+$sans-serif-italic: sans-serif;
+$light: 300;
+
+html,
+body {
+  color: $black-light;
+}
+
+h1,
+h2 {
+  color: $black;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.container-padded {
+  padding: 10px;
+}
+
+.boots-column {
+  padding-bottom: 40px;
+}
+
+.icon {
+  height: 30px;
+  margin: 10px 5px 0 10px;
+}
+.icon.icon-boots {
+    transform: scale(-1,1);
+}
+
+header {
+  background: $white;
+  padding: 45px;
+  h1 {
+    .icon {
+      height: 60px;
+      opacity: .25;
+    }
+    font-family: $sans-serif;
+    font-size: 42px;
+    line-height: 60px;
+    max-width: 680px;
+
+    small {
+      color: $black-light;
+      display: block;
+      font-size: 16px;
+      font-weight: $light;
+      line-height: 21px;
+      span {
+        color: transparentize(lighten($black, 8%), .3);
+        display: block;
+        font-size: 11px;
+        font-weight: $light;
+        line-height: 17px;
+
+        small {
+          color: transparentize(lighten($black, 11%), .4);
+          display: block;
+          font-size: 9px;  
+          font-weight: $light;
+          line-height: 13px;        
+        }
+      }
+    }
+  }
+}
+
+.under-construction {
+  h2 {
+    text-align: center;
+  }
+  p {
+    font-size: 12px;
+    line-height: 16px;
+    max-width: 360px;
+    margin: 5px auto;
+    text-align: center;
+  }
+}
+
+.projects {
+  margin: 0 auto;
+  max-width: 600px;
+  padding-top: 40px;
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      background: $white;
+      border: solid 1px $white-gray;
+      box-sizing: border-box;
+      font-size: 18px;
+      min-height: 65px;
+      margin: 0 auto 8px auto;
+      padding-top: 18px;
+      text-align: center;
+      width: 260px;
+
+      small {
+        font-size: 14px;
+        opacity: .91;
+      }
+
+      &:nth-child(even) {
+        background: $white-gray;
+      }
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media only screen and (min-width: 480px) {
+  .container-padded {
+    padding: 30px 30px 40px 60px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+
+  header {
+    padding-top: 65px;
+    h1 {
+      font-size: 62px;
+      line-height: 80px;
+      small {
+        font-size: 28px;
+        line-height: 42px;
+        span {
+          font-size: 16px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+  .under-construction {
+    h2 {
+      margin: 0 15px;
+      text-align: center;
+    }
+    p {
+      font-size: 14px;
+      line-height: 20px;
+      margin: 8px auto;
+      // text-align: left;
+    }
+    .projects {
+      ul {
+        // padding-left: 85px;
+      }
+    }
+  }
+
+}
