@@ -18,20 +18,20 @@ With Thanks from Jormes
 ## Body
 Hello James,
 
-### Lead - ask
+### Leader - ask
 Jormes wanted to say thanks for the help with their ask, "I need stuff."
 
-### Lead - offer
+### Leader - offer
 Jormes wanted to say thanks for taking up their offer, "You need my stuff."
 
-### Follow
+### Follower
 Your name sits on their {{ ask || offer }} as a little nod to all you've done.
 
-### Follow - goofy
+### Follower - goofy
 Your name sits on their {{ ask || offer }} as a little nod to all you've done. 
 (You're famous!)
 
-### Follow/CTI - impossible
+### Follower/CTA - impossible... would require a new feature :vom:
 Tell them, "You're Welcome"
 
 ### CTA (doesn't make much sense :disappointed:)
