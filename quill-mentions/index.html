@@ -20,7 +20,7 @@
         <h1>
           Quill Mentions
           <small>
-            Try this totally badass example with emoji.<br>
+            Try this totally badass example with emoji<br>
             :metal:
           </small>
         </h1>
@@ -46,7 +46,9 @@
             </span>
           </div>
           <div class="editor ql-container ql-snow" id="editor">
-            hello there 😅! enter a colon and at least two letters to search for emoji
+            <div>hello there! 😅</div>
+            <div><br></div>
+            <div>enter a colon and at least two letters to search for emoji</div>
           </div>
         </div>
 
@@ -60,8 +62,14 @@
 
         function loadEditor(data) {
 
-            var emojiChoices = data.map(function(em) { 
-                return {data: em.emoji, name: em.aliases[0]};
+            var emojiChoices = [];
+
+            data.forEach(function(em) {
+                if (em.aliases && em.aliases.length > 0) {
+                    em.aliases.forEach(function(alias) {
+                        emojiChoices.push({data: em.emoji, value: alias, alias: alias});
+                    });
+                }
             });
 
             console.log(emojiChoices);
@@ -76,7 +84,7 @@
                   'mentions': {
                       choices: emojiChoices,
                       choiceTemplate: "<li>{{data}}</li>",
-                      choiceTemplate: "<li data-display=\"{{data}}\" data-mention=\"\">{{data}} :{{choice}}:</li>",
+                      choiceTemplate: "<li data-display=\"{{data}}\">{{data}} :{{alias}}:</li>",
                       matcher: /\:(\w{2,})$/i, // for emoji, calling with :
                       noMatchMessage: "Type a real emoji!",
                       triggerSymbol: ":",
@@ -97,14 +105,13 @@
 
 
         </script>
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='https://www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-63598506-3,'auto');ga('send','pageview');
+            ga('create','UA-63598506-3','auto');ga('send','pageview');
         </script>
     </body>
 </html>
