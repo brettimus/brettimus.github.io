@@ -11,7 +11,7 @@
   background: #fff;
   border-bottom: solid thin #ddd;
   cursor: pointer;
-  padding: 8px 12px 8px 12px;
+  padding: 8px 12px;
   -webkit-transform: translateZ(1px);
   transform: translateZ(1px);
 }
@@ -32,6 +32,17 @@
   padding: 0;
 }
 
-.ql-mention-choice-no-match {
+.ql-mention-no-match {
+  background: #fff;
+  box-shadow: -1px -1px 1px #bbb, 1px  1px 1px #bbb, -1px  1px 1px #bbb, 1px -1px 1px #bbb;
+  padding: 8px 12px 8px 8px;
   pointer-events: none;
+  -webkit-transform: translateZ(1px);
+  transform: translateZ(1px);
 }
+.ql-mention-no-match i {
+  border-left: solid 2px #DF928E;
+  padding-left: 6px;
+}
+
+/*# sourceMappingURL=quill-mentions.css.map */

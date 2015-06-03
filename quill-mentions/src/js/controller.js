@@ -16,29 +16,68 @@ module.exports = {
  */
 
 
-/**
- * @constructor
- */
-function Controller(formatter, view, options) {
-    this.format = formatter;
-    this.view = view;
-    this.data = options.data;
-    this.max = options.max;
+ function Controller(formatter, view, options) {
+     this.format   = formatter;
+     this.view     = view;
+     this.database = this.munge(options.data);
+     this.max      = options.max;
+ }
+
+
+ /**
+  * @interface
+  * @param {function} formatter - Munges data
+  * @param {View} view
+  * @param {object} options
+  * @prop {function} format - Munges data 
+  * @prop {View} view
+  * @prop {number} max - Maximum number of matches to pass to the View.  
+  */
+function AbstractController(formatter, view, options) {
+    this.format   = formatter;
+    this.view     = view;
+    this.max      = options.max;
 }
 
+ /**
+  * @abstract
+  */
+ AbstractController.prototype.search = function search() {
+    throw new Error("NYI");
+ };
+
+ /**
+  * Transforms data to conform to config.
+  * @method
+  * @param {string} qry
+  * @param {searchCallback} callback
+  */
+ AbstractController.prototype.munge = function(data) {
+     return data.map(this.format);
+ };
+
+
 /**
- * Looks for match to the qry in the given data.
- * @method
- * @param {string} qry
- * @param {searchCallback} callback - Probably unnecessary...
+ * @constructor
+ * @prop {object[]} database - All possible choices for a given mention. 
  */
+function Controller(formatter, view, options) {
+    AbstractController.call(this, formatter, view, options);
+    this.database = this.munge(options.data);
+}
+Controller.prototype = Object.create(AbstractController.prototype);
+
 Controller.prototype.search = function search(qry, callback) {
-    var data = this.data.filter(function(d) {
-        var qryRE = new RegExp(escapeRegExp(qry), "i");
-        return qryRE.test(d.name);
+    var qryRE = new RegExp(escapeRegExp(qry), "i"),
+        data;
+
+    data = this.database.filter(function(d) {
+        return qryRE.test(d.value);
+    }).sort(function(d1, d2) {
+        return d1.value.indexOf(qry) - d2.value.indexOf(qry);
     });
 
-    this.view.render(data.slice(0, this.max)); // IDEA TODO - just don't render if there's no data & no error template
+    this.view.render(data.slice(0, this.max));
     if (callback) callback();
 };
 
@@ -46,22 +85,22 @@ Controller.prototype.search = function search(qry, callback) {
 /**
  * @constructor
  * @augments Controller
- * @param {Function} formatter - munges callback data
- * @param {View} view
- * @param {Object} options
+ * @prop {string} path - The path from which to request data.
+ * @prop {string} queryParameter - The name of the paramter in the request to Controller~path
+ * @prop {Object} _latestCall - Cached ajax call. Aborted if a new search is made.
  */
 function AJAXController(formatter, view, options) {
-    Controller.call(this, formatter, view, options);
+    AbstractController.call(this, formatter, view, options);
     this.path = options.path;
     this.queryParameter = options.queryParameter;
     this._latestCall = null;
 }
-AJAXController.prototype = Object.create(Controller.prototype);
+AJAXController.prototype = Object.create(AbstractController.prototype);
 
 /**
  * @method
  * @param {String} qry
- * @param {searchCallback} callback - Callback that handles returned JSON data
+ * @param {searchCallback} callback
  */
 AJAXController.prototype.search = function search(qry, callback) {
 
@@ -85,7 +124,7 @@ AJAXController.prototype.search = function search(qry, callback) {
  * @param {array} data
  */
 AJAXController.prototype._callback = function(data) {
-    data = data.slice(0, this.max).map(this.format);
+    data = this.munge(data).slice(0, this.max);
     this.view.render(data);
 };
 
