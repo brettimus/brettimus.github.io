@@ -1,0 +1,21 @@
+{
+  "name": "emoji-boids",
+  "version": "0.0.1",
+  "description": "pizza and craig, mayne",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "boots",
+    "email": "brbeut@gmail.com",
+    "url": "http://brettim.us/"
+  },
+  "license": "ISC",
+  "readme": "# emoji-boids\nA little flocking algorithm, implemented with emoji as the `boids`.\n\n## Credit \nLoosely inspired by [Emojis & Earth Porn App](https://www.producthunt.com/r/c223849160/8036), \nwhich I came across on the [Product Hunt emoji apps list](https://www.producthunt.com/e/emoji-apps?utm_source=Boots+Github&utm_campaign=d16b490bfa-Emoji_apps6_22_2015&utm_medium=boots_github).\n\nWritten with help from the [pseudocode here](http://www.vergenet.net/~conrad/boids/pseudocode.html), \nwhich I found through the [wikipedia page](https://en.wikipedia.org/wiki/Boids).",
+  "readmeFilename": "README.md",
+  "gitHead": "f1ca4cf11513cde9634f6e8d5e0e0b91df885f71",
+  "_id": "emoji-boids@0.0.1",
+  "_shasum": "b728c09744ce61541523577da6e2aa0d794690d6",
+  "_from": "emoji-boids@*"
+}
