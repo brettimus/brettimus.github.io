@@ -2,11 +2,12 @@ body {
   color: #222; }
 
 header {
-  padding: 60px 120px; }
+  padding: 60px 120px 40px; }
   header h1 {
     font-family: "Roboto", sans-serif;
     font-size: 60px;
-    text-shadow: 0 -1px 0 #ddd; }
+    margin: 18px 0;
+    text-shadow: 0 1px 0 #eee, 1px 0 0 #eee, -1px 0 0 #eee, 0 -1px 0 #eee; }
     header h1 small {
       font-size: 30px;
       font-weight: 300;
@@ -19,12 +20,21 @@ header {
     header p small {
       font-size: 16px;
       opacity: .7; }
-    header p b {
-      display: block;
-      font-size: 30px;
-      font-weight: 400; }
 
-.omg-d3-exmaple {
+.omg-d3-panel {
+  padding: 20px 120px; }
+  .omg-d3-panel h2 {
+    color: #444;
+    font-family: "Roboto", sans-serif;
+    font-size: 28px; }
+    .omg-d3-panel h2 small {
+      font-family: "Roboto Slab", serif;
+      font-size: 18px;
+      font-weight: 300;
+      opacity: .72;
+      text-shadow: none; }
+
+.omg-d3-example {
   max-width: 1200px;
   width: 100%; }
 
