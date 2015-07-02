@@ -1,0 +1,18 @@
+{
+  "name": "omg-d3",
+  "version": "0.0.1",
+  "description": "d3 microlib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "d3",
+    "data-visualization"
+  ],
+  "author": "boots <brbeut@gmail.com> (http://brettim.us/)",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^3.5.5"
+  }
+}

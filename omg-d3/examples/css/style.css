@@ -1,0 +1,31 @@
+body {
+  color: #222; }
+
+header {
+  padding: 60px 120px; }
+  header h1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 60px;
+    text-shadow: 0 -1px 0 #ddd; }
+    header h1 small {
+      font-size: 30px;
+      font-weight: 300;
+      opacity: .89;
+      text-shadow: none; }
+  header p {
+    font-family: "Roboto Slab", serif;
+    font-size: 22px;
+    font-weight: 300; }
+    header p small {
+      font-size: 16px;
+      opacity: .7; }
+    header p b {
+      display: block;
+      font-size: 30px;
+      font-weight: 400; }
+
+.omg-d3-exmaple {
+  max-width: 1200px;
+  width: 100%; }
+
+/*# sourceMappingURL=style.css.map */
