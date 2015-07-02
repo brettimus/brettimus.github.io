@@ -1,20 +1,24 @@
-$black: #222;
+$black     : #222;
 $sans-serif: "Roboto", sans-serif;
-$serif: "Roboto Slab", serif;
+$serif     : "Roboto Slab", serif;
 
-$pad-horizontal: 60px;
-$pad-h: $pad-horizontal;
+$pad-horizontal: 120px;
+$pad-h         : $pad-horizontal;
 
 body {
   color: $black;
 }
 
 header {
-  padding: $pad-h 120px;
+  padding: 60px $pad-h 40px;
   h1 {
     font-family: $sans-serif;
     font-size: 60px;
-    text-shadow: 0 -1px 0 #ddd;
+    margin: 18px 0;
+    text-shadow: 0 1px 0 #eee,
+                  1px 0 0 #eee,
+                  -1px 0 0 #eee,
+                  0 -1px 0 #eee;
     small {
       font-size: 30px;
       font-weight: 300;
@@ -26,20 +30,28 @@ header {
     font-family: $serif;
     font-size: 22px;
     font-weight: 300;
-
     small {
       font-size: 16px;
       opacity: .7;
     }
-
-    b {
-      display: block;
-      font-size: 30px;
-      font-weight: 400;
+  }
+}
+.omg-d3-panel {
+  padding: 20px $pad-h;
+  h2 {
+    color: #444;
+    font-family: $sans-serif;
+    font-size: 28px;
+    small {
+      font-family: $serif;
+      font-size: 18px;
+      font-weight: 300;
+      opacity: .72;
+      text-shadow: none;
     }
   }
 }
-.omg-d3-exmaple {
+.omg-d3-example {
   max-width: 1200px;
   width: 100%;
 }
