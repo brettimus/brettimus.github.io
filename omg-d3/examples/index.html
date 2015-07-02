@@ -21,6 +21,15 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
         <link rel="stylesheet" href="css/style.css">
+
+        <style>
+
+
+        /*@import url(../style.css?aea6f0a);*/
+
+
+
+        </style>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -42,9 +51,18 @@
         <div class="pure-g">
             <div class="pure-u-1 omg-d3-panel">
                 <h2>
-                    co-occurrence matrix
+                    co-occurrence matrix <br>
                     <small>ripped from the d3 gallery</small>
                 </h2>
+                <p>
+                    View: 
+                    <select id="order">
+                      <option value="name">by Name</option>
+                      <option value="count">by Frequency</option>
+                      <option value="group">by Cluster</option>
+                    </select>
+                </p>
+                <br>
                 <div class="omg-d3-example" id="example">
                     
                 </div>
