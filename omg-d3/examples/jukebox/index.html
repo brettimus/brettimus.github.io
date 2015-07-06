@@ -1,0 +1,39 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jukebox bruh</title>
+</head>
+<body>
+  
+  <script src="./bower_components/d3/d3.js"></script>
+  <script src="./bower_components/moment/moment.js"></script>
+  <script>
+      d3.text("./jukebox-top100.csv", function(text) {
+          var data   = d3.csv.parseRows(text);
+          var result = munge(data);
+          d3.select("body")
+            .selectAll("svg")
+            .attr({height: 500, width: 960-100})
+            .data([result])
+            .enter()
+            .append("g")
+            .attr("transform", "translate("+[60,60]+")")
+            // .call(/* */)
+
+          console.log(result);
+      });
+
+      function munge(data) {
+          return data.map(function(d) {
+              return {
+                  album: d[1],
+                  artist: d[0],
+                  count: parseInt(d[3], 10),
+                  timestamps: JSON.parse(d[4]),
+                  title: d[2],
+              }
+          });
+      }
+  </script>
+</body>
+</html>

@@ -13,6 +13,8 @@
   "author": "boots <brbeut@gmail.com> (http://brettim.us/)",
   "license": "MIT",
   "dependencies": {
-    "d3": "^3.5.5"
+    "d3": "^3.5.5",
+    "fast-csv": "^0.6.0",
+    "moment": "^2.10.3"
   }
 }
