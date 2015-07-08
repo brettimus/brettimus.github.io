@@ -3,29 +3,51 @@
 // TODO - clean dates
 //        current format is acceptable to moment
 
-var fs = require("fs"),
-    csv = require("fast-csv");
+var csv    = require("fast-csv"),
+    fs     = require("fs"),
+    moment = require("moment");
 
+var Song       = require("./song"),
+    SongCounts = require("./song-counts");
 
-(function countSongs() {
+countSongs(saveTop100);
+
+// Transformer
+function saveTop100(err, songs) {
+    var result = songs.list.sort(function(a, b) { // descending sort
+            return b.count - a.count;
+        })
+        .slice(0, 100); // top 100
+    // result.forEach(function(d) { // momentify dates
+    //     d.timestamps = d.timestamps.map(function(t) {
+    //         return moment(t).format();
+    //     });
+    // });
+    saveFile("./jukebox-top100.csv", result);
+}
+
+// Reader
+function countSongs(next) {
+    var path = "./jukebox.csv";
     var songs = new SongCounts();
     var stream = fs.createReadStream("./jukebox.csv");
     var csvStream = csv()
         .on("data", function(data) {
             songs.add(new Song(data));
         })
+        .on("error", function(err) {
+            console.log("Error in csvStream");
+            next(err, null);
+        })
         .on("end", function() {
-            console.log("done");
-            var result = songs.list.sort(function(a, b) {
-                return b.count - a.count;
-            }).slice(0, 100);
-
-            saveFile("./jukebox-top100", result);
+            console.log("Done reading", path);
+            next(null, songs);
         });
 
     stream.pipe(csvStream);
-})();
+}
 
+// Writer
 function saveFile(path, data) {
     var stream = fs.createWriteStream(path);
     var csvStream = csv.createWriteStream({headers: false});
@@ -42,34 +64,3 @@ function saveFile(path, data) {
     });
     csvStream.end();
 }
-
-// Data Structures
-
-function Song(row) {
-    this.data   = row.slice(1);
-    this.artist = row[1];
-    this.title  = row[3];
-    this.count  = 0;
-    this.timestamps = [row[0]];
-}
-
-Song.prototype.uid = function(row) {
-    var data = row || this.data;
-    return data[1] + data[3];
-};
-
-function SongCounts() {
-    this.ledger = {};
-    this.list   = [];
-}
-
-SongCounts.prototype.add = function(song) {
-    var uid = song.uid();
-    if (!this.ledger[uid]) {
-        this.ledger[uid] = song;
-        this.list.push(song);
-    }
-    this.ledger[uid].timestamps.push(song.timestamps.pop());
-    this.ledger[uid].count++;
-
-};

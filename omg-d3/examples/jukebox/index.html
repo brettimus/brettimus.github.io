@@ -8,6 +8,9 @@
   <script src="./bower_components/d3/d3.js"></script>
   <script src="./bower_components/moment/moment.js"></script>
   <script>
+      var timeFormat = "%a %b %e %X %Y",
+          parseTime  = d3.time.format(timeFormat).parse;
+          
       d3.text("./jukebox-top100.csv", function(text) {
           var data   = d3.csv.parseRows(text);
           var result = munge(data);
@@ -25,11 +28,13 @@
 
       function munge(data) {
           return data.map(function(d) {
+              var ts = JSON.parse(d[4]).map(parseTime);
+
               return {
                   album: d[1],
                   artist: d[0],
                   count: parseInt(d[3], 10),
-                  timestamps: JSON.parse(d[4]),
+                  timestamps: ts,
                   title: d[2],
               }
           });
