@@ -1,0 +1,40 @@
+$black: #141204;
+$white: #fff;
+$blue-light: #cdedf6;
+
+$light: 300;
+
+$serif: serif;
+$sans-serif: sans-serif;
+$cursive: cursive;
+
+html,
+body {
+  background: $black;
+}
+
+header {
+  border-bottom: solid 2px transparentize($white, .98);
+  color: $white;
+  margin: 0 auto;
+  padding: 1.8em 1.8em 2.2em 1.8em;
+  max-width: 48em;
+  h1 {
+    small {
+      // display: block;
+      font-size: 60%;
+      font-weight: $light;
+      opacity: .91;
+    }
+  }
+
+  p {
+    font-family: $cursive;
+    letter-spacing: .04em;
+    text-align: right;
+  }
+}
+
+.container {
+  padding: 1em 1.2em 1.5em 1.8em;
+}
