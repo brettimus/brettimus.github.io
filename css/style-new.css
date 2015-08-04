@@ -1,0 +1,23 @@
+html,
+body {
+  background: #141204; }
+
+header {
+  border-bottom: solid 2px rgba(255, 255, 255, 0.02);
+  color: #fff;
+  margin: 0 auto;
+  padding: 1.8em 1.8em 2.2em 1.8em;
+  max-width: 48em; }
+  header h1 small {
+    font-size: 60%;
+    font-weight: 300;
+    opacity: .91; }
+  header p {
+    font-family: cursive;
+    letter-spacing: .04em;
+    text-align: right; }
+
+.container {
+  padding: 1em 1.2em 1.5em 1.8em; }
+
+/*# sourceMappingURL=style-new.css.map */
