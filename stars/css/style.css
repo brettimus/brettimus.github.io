@@ -1,0 +1,87 @@
+body {
+  background:
+  linear-gradient(324deg, hsla(350, 10%, 7%, 1) 4%,   transparent 4%) -70px 43px,
+  linear-gradient( 36deg, hsla(350, 10%, 7%, 1) 4%,   transparent 4%) 30px 43px,
+  linear-gradient( 72deg, hsla(350, 3%, 30%, 1) 8.5%, transparent 8.5%) 30px 43px,
+  linear-gradient(288deg, hsla(350, 3%, 30%, 1) 8.5%, transparent 8.5%) -70px 43px,
+  linear-gradient(216deg, hsla(350, 3%, 30%, 1) 7.5%, transparent 7.5%) -70px 23px,
+  linear-gradient(144deg, hsla(350, 3%, 30%, 1) 7.5%, transparent 7.5%) 30px 23px,
+
+  linear-gradient(324deg, hsla(350, 10%, 7%, 1) 4%,   transparent 4%) -20px 93px,
+  linear-gradient( 36deg, hsla(350, 10%, 7%, 1) 4%,   transparent 4%) 80px 93px,
+  linear-gradient( 72deg, hsla(350, 3%, 30%, 1) 8.5%, transparent 8.5%) 80px 93px,
+  linear-gradient(288deg, hsla(350, 3%, 30%, 1) 8.5%, transparent 8.5%) -20px 93px,
+  linear-gradient(216deg, hsla(350, 3%, 30%, 1) 7.5%, transparent 7.5%) -20px 73px,
+  linear-gradient(144deg, hsla(350, 3%, 30%, 1) 7.5%, transparent 7.5%) 80px 73px;
+  background-color: hsla(350, 10%, 7%, 1);
+  background-size: 100px 100px;
+}
+
+header {
+  /*background: hsla(350, 10%, 88%, 1);*/
+  box-sizing: border-box;
+  margin-top: 10em;
+  padding: 1em 1.2em 1.2em 1.2em;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  font-family: "Sigmar One", sans-serif;
+  font-size: 2.4em;
+  letter-spacing: .02em;
+  margin: 0 auto;
+  padding: .4rem 0 .6rem 0;
+  text-align: center;
+
+  z-index: 1;
+
+  background: linear-gradient(135deg, hsla(350, 65%, 45%, 1) 25%, hsla(350, 61%, 54%, 1) 0, hsla(354, 61%, 54%, 1) 54%, hsla(350, 65%, 45%, 1) 0, hsla(350, 65%, 45%, 1) 75%, hsla(350, 61%, 50%, 1) 0);
+  background-size: 50px 50px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  font-family: "Lora" serif;
+  font-size: 1em;
+
+  text-shadow: 1px 1px  hsla(350, 10%, 7%, 1),
+                1px -1px  hsla(350, 10%, 7%, 1),
+                -1px 1px  hsla(350, 10%, 7%, 1),
+                -1px -1px  hsla(350, 10%, 7%, 1);
+
+}
+
+.sub {
+  color: hsla(350, 9%, 75%, .9);
+}
+
+.sub-tag {
+  color: hsla(350, 9%, 80%, .7);
+  font-family: "Lora";
+  font-size: .8em;
+  font-style: italic;
+  margin: 0;
+}
+
+@media screen and (min-width: 414px) {
+  header {
+    margin-top: 8em;
+    padding: 1em 1.7em 1em 1.7em;
+  }
+  h1 {
+    background-size: 80px 80px;
+    font-size: 4em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    padding: 2em 3.4em 2.2em 3.4em;
+  }
+  h1 {
+    background-size: 100px 100px;
+    font-size: 4em;
+  }
+}
