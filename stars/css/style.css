@@ -20,7 +20,7 @@ body {
 header {
   /*background: hsla(350, 10%, 88%, 1);*/
   box-sizing: border-box;
-  margin-top: 10em;
+  margin-top: 8em;
   padding: 1em 1.2em 1.2em 1.2em;
   text-align: center;
   width: 100%;
@@ -67,7 +67,6 @@ p {
 
 @media screen and (min-width: 414px) {
   header {
-    margin-top: 8em;
     padding: 1em 1.7em 1em 1.7em;
   }
   h1 {
