@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Stars!</title>
+        <meta name="description" content="Oh my stars!">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic' rel='stylesheet' type='text/css'>
+
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Oh My Stars!</h1>            
+            <p class="sub">I am excited for donuts.</p>
+            <p class="sub-tag"><i>(And I am also excited to meet you.)</i></p>
+        </header>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
+        <script src="bower_components/velocity/velocity.min.js"></script>
+        <script>
+            var $body = $("body");
+            $body
+            .velocity({
+                backgroundColor: "#000",
+            }, {
+                duration: 2500,
+                loop: true,
+                easing: "swing",
+            });
+        </script>
+    </body>
+</html>
