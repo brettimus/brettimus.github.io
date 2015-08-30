@@ -8,7 +8,7 @@ and inspected source?
 
 No. It wouldn't.
 
-Get out of my house.
+(_Actually it would be totally fine! Feel free to snoop around. Let me know if you see anything awry or if you have questions._)
 
 
 ## Reverse-Chronological List of Projects 
