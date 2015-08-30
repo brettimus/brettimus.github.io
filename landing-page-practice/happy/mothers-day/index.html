@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>My Mom is the Best Mom</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <article class="card">
+    <section class="greeting">
+      hey mom
+    </section>
+    <section class="message">
+      <h1>happy<br>mother's day!</h1>
+      <p class="pardon-my">
+        you'll have to pardon my french, but
+      </p>
+      <p class="french u-text-center">
+        je crois que tu es la meilleure mère.
+      </p>
+    </section>
+    <footer>
+      <p class="brett">
+        <img id="hearts" class="heart" src="./heart.svg"></span>
+        <span class="u-text-small">your</span>
+        <span class="u-text-large son">son</span>
+      </p>
+      <p class="brett">
+      </p>
+      <p class="brett you-know">
+        (...you know, brett)
+      </p>
+    </footer>
+  </article>
+  <script src="./super-hearts.js"></script>
+  <script>
+    // Animate the hearts!
+    SuperHearts("#hearts", {
+      angleRange: [350, 370],
+      geyser: true,
+      geyserInterval: 1500,
+      heartsCount: [1, 3],
+      scaleRange: [.01, .02],
+      transitionDuration: 2000,
+      translateXRange: [-10, 10],
+      translateYRange: [40, 80],
+      transformOrigin: "center center"
+    })
+  </script>
+</body>
+</html>
