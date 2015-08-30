@@ -3,13 +3,13 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+   brett beutell — person -- @rudeboot
 
 # THANKS
 
-    <name>
+   html5 boilerplate people
 
 # TECHNOLOGY COLOPHON
 
     CSS3, HTML5
-    Apache Server Configs, jQuery, Modernizr, Normalize.css
+    d3, jQuery, Modernizr, google maps api, Normalize.css, pure.css
