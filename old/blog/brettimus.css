@@ -1,0 +1,27 @@
+html {
+	margin: 0;
+}
+body {
+	width: 100%;
+	padding-top: 100px;
+	margin: 0;
+}
+header {
+	height: 100px; /* matches body top padding */
+	width: 100%;
+}
+.header-absolute {
+	position: absolute;
+	top: 0;
+}
+
+.row {
+	width: 100%;
+}
+
+
+/* utility styles */
+
+.u-center_text {
+	text-align: center;
+}

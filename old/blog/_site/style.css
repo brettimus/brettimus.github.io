@@ -1,0 +1,14 @@
+@font-face{
+	font-family: Miama;
+	src: url(./Miama.otf);
+}
+@font-face{
+	font-family: Gaspar;
+	src: url(./Gaspar_Regular.otf);
+}
+.miama {
+	font-family: Miama;
+}
+.gaspar {
+	font-family: Gaspar;
+}
