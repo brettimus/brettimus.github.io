@@ -148,6 +148,11 @@ a.button-social {
 
 .media-map {
   height: 180px;
+  .info-window {
+    color: #222;
+    font-family: $sans-serif;
+    padding: .2em;
+  }
 }
 
 // small tablets, big phones
