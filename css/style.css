@@ -101,6 +101,10 @@ a.button-social {
 
 .media-map {
   height: 180px; }
+  .media-map .info-window {
+    color: #222;
+    font-family: "Lato", sans-serif;
+    padding: .2em; }
 
 @media only screen and (min-width: 30em) {
   header {

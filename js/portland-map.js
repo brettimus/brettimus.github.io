@@ -92,7 +92,8 @@ function portlandMapStyles() {
 function portlandMap() {
     var map,
         styles = portlandMapStyles(),
-        marker;
+        marker,
+        markerImage;
 
     map = new google.maps.Map(document.getElementById('portland'), {
         center: {
@@ -107,6 +108,14 @@ function portlandMap() {
         styles: styles,
     });
 
+    markerImage = {
+      url: "/img/sq/me-sm-sq.png", // needs an already scaled photo
+      size: new google.maps.Size(71, 71),
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(17, 34),
+      scaledSize: new google.maps.Size(50, 50)
+    };
+
     marker = new google.maps.Marker({
         position: {
             lat: 45.5189616,
@@ -115,5 +124,16 @@ function portlandMap() {
         animation: google.maps.Animation.DROP,
         map: map,
         icon: "/img/icon-boots-50.svg",
+        title: "Sup?"
+        // icon: markerImage,
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+      content: "<div class='info-window'><b>Fun fact!</b> My nickname is Boots.</div>"
+    });
+
+    marker.addListener("click", function() {
+        infowindow.open(map, marker);
     });
 }
+
