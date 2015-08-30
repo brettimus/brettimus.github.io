@@ -15,11 +15,6 @@
         <link rel="stylesheet" href="/bower_components/pure/pure-min.css">
         <link rel="stylesheet" href="/bower_components/pure/grids-responsive-min.css">
         <link rel="stylesheet" href="/css/style.css">
-        <style>
-          #portland {
-            height: 200px;
-          }
-        </style>
         <script src="/bower_components/modernizr/modernizr.min.js"></script>
     </head>
     <body>
@@ -29,42 +24,77 @@
 
       <div class="layout">
         <header>
-          <div class="blurb greeting-container">
-            <span class="greeting-avatar"></span>
-              <h1 class="greeting-lede">
+          <div class="blurb greeting">
+            <span class="greeting--avatar"></span>
+            <div class="greeting--text-container">
+              <h1 class="greeting--text greeting--text-lede">
                 Hey!
               </h1>
+              <h2 class="greeting--text greeting--text-sub blurb--heading">
+                My name is Brett.
+                <small class="blurb--heading-small">
+                  And, yes, I actually smile like that.
+                </small>
+              </h2>              
+            </div>
           </div>         
         </header>
 
         <div class="pure-g blurb--container">
-          <div class="pure-u-1 blurb">
-              <h2 class="blurb--heading">
-                My name is Brett.
-                <small>
-                    And, yes, I actually smile like that.
-                </small>
-              </h2>
-          </div>
-        </div>
-
-        <div class="pure-g blurb--container">
             <div class="pure-u-1 blurb">
                 <h2 class="blurb--heading">
-                  I am a web developer in Portland.
-                  <small>
-                    Oregon, not Maine.
+                  I am a full stack web developer.
+                  <small class="blurb--heading-small">
+                    My MacBook and I live a quiet, happy life 
+                    together in Portland, Oregon, where 
+                    we work for <a href="/">Switchboard</a>. 
                   </small>
                 </h2>
-            </div>
-            <div class="pure-u-1">
-              <div id="portland"></div>              
+                <div class="blurb--body">
+                  <div id="portland" class="portland-map-container"></div>
+                </div>
             </div>
         </div>
       </div>
 
+      <div class="pure-g blurb--container">
+        <div class="pure-u-1 blurb">
+            <h2 class="blurb--heading">
+              Javascript is my Spirit Animal.
+              <small class="blurb--heading-small">
+                Albeit I also dabble in Ruby/Rails. 
+              </small>
+            </h2>
+            <div class="blurb--body">
+            </div>
+        </div>
+      </div>
 
-
+      <div class="pure-g blurb--container">
+        <div class="pure-u-1 blurb">
+            <h2 class="blurb--heading">
+              You can find me on the Internet.
+              <small class="blurb--heading-small">
+                  I write code, 
+                  pen silly blog posts, 
+                  and retweet a lot of cat photos.
+              </small>
+            </h2>
+            <div class="blurb--body">
+              <div class="button-group">
+                <a href="/" class="button button-social">
+                  <i class="fa fa-2x fa-fw fa-github "></i>
+                </a>
+                <a href="/" class="button button-social">
+                  <i class="fa fa-2x fa-fw fa-medium"></i>                    
+                </a>
+                <a href="/" class="button button-social">
+                  <i class="fa fa-2x fa-fw fa-twitter"></i>                    
+                </a>
+              </div>
+            </div>
+        </div>
+      </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/bower_components/jquery/jquery.min.js"><\/script>')</script>
@@ -82,9 +112,96 @@
         <script>
           var map;
           function portlandMap() {
+
+            var styleRule = {
+              featureType: '',
+              elementType: '',
+              stylers: [
+                {hue: ''},
+                {saturation: ''},
+                {lightness: ''},
+                // etc...
+              ]
+            };
+
+            var all = {
+              featureType: "all",
+              stylers: [
+                { hue: "#222222" },
+                { saturation: -100 },
+                // { lightness: "-50" },
+              ]
+            };
+
+            var noNeighborhoodLabels = {
+              featureType: "administrative.neighborhood",
+              elementType: "labels",
+              stylers: [
+                { visibility: "off" }
+              ]
+            };
+
+            var noRoadLabels = {
+              featureType: "road",
+              elementType: "labels",
+              stylers: [
+                { visibility: "off" }
+              ]
+            };
+
+            var noPOILabels = {
+              featureType: "poi",
+              elementType: "labels",
+              stylers: [
+                { visibility: "off" }
+              ]
+            };
+
+            var arterialRoadStyles = {
+                featureType: "road.arterial",
+                elementType: "geometry",
+                stylers: [
+                  { hue: "#ffceb1" },
+                  { saturation: 50 }
+                ]
+            };
+
+            var highwayRoadStyles = {
+              featureType: "road.highway",
+              elementType: "geometry",
+              stylers: [
+                { hue: "#0198B6" },
+                { saturation: 10 }
+              ]
+            };
+
+            var waterStyles = {
+                featureType: "water",
+                elementType: "all",
+                stylers: [
+                  { hue: "#0198B6" },
+                  { saturation: 10 }
+                ]
+            };
+
+            var mapStyles = [
+                all,
+                noNeighborhoodLabels,
+                noRoadLabels,
+                noPOILabels,
+                arterialRoadStyles,
+                highwayRoadStyles,
+                waterStyles,
+            ];
             map = new google.maps.Map(document.getElementById('portland'), {
-              center: {lat: 45.5189616, lng: -122.6520927},
+              center: {
+                lat: 45.5189616, 
+                lng: -122.6520927,
+              },
               zoom: 12,
+              disableDefaultUI: true,
+              draggable: false,
+              styles: mapStyles,
             });
           }
         </script>

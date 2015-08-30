@@ -4,15 +4,16 @@ $serif: "Lora", serif;
 $light: 300;
 $normal: 400;
 
-$blue: #0198B6;
-$black: #222;
-$white: #fff;
-$gray: #605a5b;
-$gray-l: #8c8a86;
-$peach: #ffceb1;
+$black : #222;     // 0° 0% 13%
+$white : #fff;     // 0° 0% 100%
+$gray  : #605a5b;  // 350° 3% 36%
+$gray-d: darken($gray, 16%);
+$gray-l: #8c8a86;  // 40° 3% 54%
+$blue  : #0198B6;  // 190° 99% 36%
+$peach : #ffceb1;  // 22° 100% 85%
 
-$bg-color: $black;
-$polka-dot: darken($gray, 10%);
+$bg-color : $black;
+$polka-dot: $gray-d;
 
 body {
   background-color: $bg-color;
@@ -38,65 +39,96 @@ header {
   padding: 2.7em 1.2em;
 }
 
-.greeting-container {
+.greeting {
   position: relative;
-  min-height: 6em;
+  min-height: 5em;
 }
 
-.greeting-avatar {
+.greeting--avatar {
   background-image: url(/img/sq/me-xs-sq.png);
   background-size: 100px 100px;
   border: solid 2px hsla(0, 0%, 100%, .91);
   border-radius: 50em;
-  box-shadow: inset 0 0 0 100px hsla(0, 0%, 0%, .12);
+  box-shadow: inset 0 0 0 100px transparentize($gray-d, .91);
   height: 100px;
+  left: 0;
   position: absolute;
-  top: 0; left: 0;
+  top: 0; 
   width: 100px;
 }
 
-.greeting-lede {
+.greeting--text-container {
+  left: 120px;
+  position: absolute;
+  top: 0;
+}
+
+.greeting--text {
   color: $white;
-  display: inline-block;
+  margin: 0;
+}
+
+.greeting--text-lede {
   font-size: 2.4em;
   font-style: italic;
-  height: 100px;
-  margin: 0;
-  padding-top: 20px;
-  position: absolute;
-  top: 0; left: 120px;
+  padding-top: .1em;
+}
+
+.greeting--text-sub {
+  color: $white;
+  font-size: 1.2em;
+  font-weight: $normal;
 }
 
 .blurb--container {
   box-sizing: border-box;
   padding: .8em 1.2em 1em 1.2em;
   width: 100%;
-  &:nth-of-type(1) {
-    margin-top: -1em;
-  }
 }
 
 .blurb {
-  max-width: 48em;
+  max-width: 32em;
   margin: 0 auto;
 }
 
 .blurb--heading {
-  small {
-    display: block;
-    font-size: .6em;
-    font-weight: $light;
 
+}
+.blurb--heading-small {
+  display: block;
+  font-size: .6em;
+  font-weight: $light;
+  padding: 4px 0;
+}
+
+.blurb--body {
+
+}
+
+.button-group {
+  text-align: center;
+}
+
+.button,
+a.button {
+  color: $white;
+  padding: .3em .4em .4em .4em;
+  text-decoration: none;
+}
+
+.button-social {
+  box-sizing: border-box;
+  font-size: 1.2em;
+  margin: .2em;
+
+  &:hover {
+    border-bottom: solid 3px $peach;
   }
 }
 
-.heading {
-  font-family: $sans-serif;
-  max-width: 32em;
-}
-
-.heading-sub {
-  font-weight: $light;
+.portland-map-container {
+  border-radius: 1em;
+  height: 180px;
 }
 
 // small tablets, big phones
@@ -114,6 +146,11 @@ header {
 
     header {
 
+    }
+
+    .blurb--heading,
+    .blurb--body {
+      padding-left: 50px;
     }
 
 }
