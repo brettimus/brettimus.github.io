@@ -4,13 +4,15 @@ $serif: "Lora", serif;
 $light: 300;
 $normal: 400;
 
-$black : #222;     // 0° 0% 13%
-$white : #fff;     // 0° 0% 100%
-$gray  : #605a5b;  // 350° 3% 36%
-$gray-d: darken($gray, 16%);
-$gray-l: #8c8a86;  // 40° 3% 54%
-$blue  : #0198B6;  // 190° 99% 36%
-$peach : #ffceb1;  // 22° 100% 85%
+$black   : #222;     // 0° 0% 13%
+$white   : #fff;     // 0° 0% 100%
+$white-d : #eee;     // 0° 0% 100%
+$gray    : #605a5b;  // 350° 3% 36%
+$gray-d  : darken($gray, 18%);
+$gray-l  : #8c8a86;  // 40° 3% 54%
+$blue    : #0198B6;  // 190° 99% 36%
+$blue-l  : lighten($blue, 10%);
+$peach   : #ffceb1;  // 22° 100% 85%
 
 $bg-color : $black;
 $polka-dot: $gray-d;
@@ -32,6 +34,12 @@ h2 {
 
 p {
   font-family: $serif;
+}
+
+a {
+  border-bottom: solid 1px $peach;
+  color: $white;
+  text-decoration: none;
 }
 
 header {
@@ -82,7 +90,7 @@ header {
 
 .blurb--container {
   box-sizing: border-box;
-  padding: .8em 1.2em 1em 1.2em;
+  padding: 1em 1.2em 1.4em 1.2em;
   width: 100%;
 }
 
@@ -95,6 +103,7 @@ header {
 
 }
 .blurb--heading-small {
+  color: $white-d;
   display: block;
   font-size: .6em;
   font-weight: $light;
@@ -111,12 +120,14 @@ header {
 
 .button,
 a.button {
+  border: none;
   color: $white;
   padding: .3em .4em .4em .4em;
   text-decoration: none;
 }
 
-.button-social {
+.button-social,
+a.button-social {
   box-sizing: border-box;
   font-size: 1.2em;
   margin: .2em;
@@ -126,8 +137,14 @@ a.button {
   }
 }
 
-.portland-map-container {
+.media {
+  border: solid 3px $white-d;
   border-radius: 1em;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.media-map {
   height: 180px;
 }
 
