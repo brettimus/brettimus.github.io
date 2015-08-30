@@ -3,17 +3,23 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
+        <title>hello today!</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,300italic,300,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,400italic"  type='text/css'>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/bower_components/pure/pure-min.css">
-        <link rel="stylesheet" href="/css/pure-grid-2.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="/bower_components/pure/grids-responsive-min.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <style>
+          #portland {
+            height: 200px;
+          }
+        </style>
         <script src="/bower_components/modernizr/modernizr.min.js"></script>
     </head>
     <body>
@@ -21,150 +27,44 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <header class="container">
-            <h1>
-
-                hello today!
-                <small>
-                    this is my personal website<sup>&#42;</sup>.
-                    <span>
-                        it's not that personal
-                        <small>
-                            for a website.
-                        </small>
-                    </span>
-                </small>
-            </h1>    
+      <div class="layout">
+        <header>
+          <div class="blurb greeting-container">
+            <span class="greeting-avatar"></span>
+              <h1 class="greeting-lede">
+                Hey!
+              </h1>
+          </div>         
         </header>
-        <div class="container container-padded under-construction">
-            <div class="pure-g">
-                <div class="pure-u-1-1 pure-u-md-1-2 boots-column">
-                    <h2>
-                        <i class="fa fa-asterisk"></i> 
-                        <br>
-                        Sorry for the mess.
-                    </h2>
-                    <p>
-                        I am in the process of building 
-                        a new home page. 
-                    </p>
-                    <p>
-                        All the more reason to check back later!
-                    </p>
-                </div>
 
-                <div class="pure-u-1-1 pure-u-md-1-2 boots-column">
-                    <h2>
-                       <i class="fa fa-share-alt"></i>
-                       <br>
-                       Here's some stuff.
-                    </h2>
-                    <p>
-                        I put a list of my stuff below.
-                    </p>
-                    <p>
-                        You can find all of these projects on <a href="https://github.com/brettimus">my GitHub</a>.
-                    </p>
-                </div>
+        <div class="pure-g blurb--container">
+          <div class="pure-u-1 blurb">
+              <h2 class="blurb--heading">
+                My name is Brett.
+                <small>
+                    And, yes, I actually smile like that.
+                </small>
+              </h2>
+          </div>
+        </div>
 
-                <div class="pure-u-1-1 projects">
-                    <ul>
-                        <li>
-                            <a href="/boids/pizza">Emoji-Boids</a>
-                            <br><br>
-                            <small>
-                                What if pizza emoji<br>
-                                could flock like<br>
-                                boids<br>
-                            </small>
-                        </li>
-                        <li>
-                            <a href="/super-hearts">SuperHearts</a>
-                            <br><br>
-                            <small>
-                                An over-the-top animation library<br>
-                                for image-based click <br>
-                                (or touch) <br>
-                                effects
-                            </small>
-                        </li>
-                        <li>
-                            <a href="/quill-mentions">
-                                Quill-Mentions        
-                            </a>
-                            <br><br>
-                            <small>
-                                @-style mentions module <br>
-                                for the <a href="http://quilljs.com/">Quill.js</a> <br>
-                                text editor
-                            </small>
-                        </li>
-                        <li>
-                            <a href="/google-fonts-cli/lp">
-                                Random Google Fonts
-                            </a>
-                            <br><br>
-                            <small>
-                                Makes use of 
-                                <a href="https://www.npmjs.com/package/boo-templates">
-                                    boo-templates
-                                </a>
-                                <br>
-                                as well as code from
-                                <br>
-                                <a href="https://www.npmjs.com/package/google-fonts-cli">google-fonts-cli</a>
-                            </small>
-                        </li>
-                        <li>
-                            <a href="https://www.npmjs.com/package/pure-boots">pure-boots (cli)</a>
-                            <br><br>
-                            <small>
-                                Dead-simple command line tool <br>
-                                for building responsive <br> 
-                                pure.css grids <br> 
-                                on the fly
-                            </small>
-                        </li>
-                        <li>
-                            <a href="/game-of-life/virus/dist">
-                               Viral Game of Life                                
-                            </a>
-                            <br><br>
-                            <small>
-                                Rendition of Game of Life <br>
-                                wherein a click <br>
-                                introduces a <br>
-                                &ldquo;virus&rdquo;
-                            </small>
-                        </li>
-                        <li>
-                            <a href="https://github.com/brettimus/boo-templates">
-                                boo-templates                                
-                            </a>
-                            <br><br>
-                            <small>
-                                Exxtremely light<br>
-                                templating <br>
-                                tool
-                            </small>
-                        </li>
-                        <li>
-                            <a href="https://github.com/brettimus/quill-placeholder">
-                                quill-placeholder                                
-                            </a>
-                            <br><br>
-                            <small>
-                                Placeholder text
-                                <br>
-                                module for <br>
-                                Quill.js.
-                            </small>
-                        </li>
-                    </ul>                        
-                </div>
+        <div class="pure-g blurb--container">
+            <div class="pure-u-1 blurb">
+                <h2 class="blurb--heading">
+                  I am a web developer in Portland.
+                  <small>
+                    Oregon, not Maine.
+                  </small>
+                </h2>
+            </div>
+            <div class="pure-u-1">
+              <div id="portland"></div>              
             </div>
         </div>
+      </div>
+
+
+
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/bower_components/jquery/jquery.min.js"><\/script>')</script>
@@ -177,6 +77,20 @@
             e.src='https://www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-63598506-1','auto');ga('send','pageview');
+        </script>
+
+        <script>
+          var map;
+          function portlandMap() {
+            map = new google.maps.Map(document.getElementById('portland'), {
+              center: {lat: 45.5189616, lng: -122.6520927},
+              zoom: 12,
+            });
+          }
+        </script>
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCX4nP4dtc5qTW6RiBVO7s3SzoTMrq86hc&callback=portlandMap">
+          
         </script>
     </body>
 </html>
