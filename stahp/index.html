@@ -1,0 +1,121 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Stahp!</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link href='https://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+        <style>
+            body {
+                background: #eee;
+                padding-top: 9em;
+            }
+            .container {
+                box-sizing: border-box;
+                height: 100%;
+                height: 100vw; /* gotta be equal to the width */
+                width: 100%;
+                width: 100vw;
+            }
+
+            #stahp-sign-outer {
+                /*background: #8F0700;*/
+                box-sizing: border-box;
+                color: white;
+                font-family: 'Arvo', sans-serif;
+                font-size: 9em;
+                overflow: hidden;
+                position: relative;
+                height: 80%;
+                margin: 0 auto;
+                text-align: center;
+                text-transform: uppercase;
+                width: 80%;
+                z-index: 1;
+            }
+
+            #stahp-sign-outer::before {
+                background: #8F0700;
+                border: solid .1em #222;
+                box-shadow: inset 0 0 1px #222;
+                box-sizing: border-box;
+                content: '';
+                height: 100%;
+                position: absolute;
+                top: 0; left: 0;
+                transform: rotate(45deg);
+                width: 100%;
+                z-index: -1;
+            }
+
+            #stahp-sign-inner {
+                box-sizing: border-box;
+                border-left: solid .1em #222;
+                border-right: solid .1em #222;
+                height: 40%;
+                position: relative;
+                text-align: center;
+                top: 30%;
+                width: 100%;
+            }
+
+            #stahp-sign-inner::before {
+                border-left: solid .1em #222;
+                border-right: solid .1em #222;
+                content: '';
+                height: 100%;
+                margin: 0;
+                position: absolute;
+                right: -3%;
+                text-align: center;
+                width: 100%;
+                transform: rotate(90deg);
+                z-index: 1;
+            }
+
+            #stahp-sign-inner b {
+                display: block;
+                padding-top: 0;
+            }            
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="container">
+            <div id="stahp-sign-outer">
+                <div id="stahp-sign-inner">
+                    <b>
+                        STAHP
+                    </b>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>
