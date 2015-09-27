@@ -1,0 +1,98 @@
+/* line 1, ../../src/sass/main.sass */
+body {
+  font-family: sans-serif;
+  color: #333;
+  margin: 0;
+  background-color: #333;
+  padding: 2rem;
+}
+
+/* line 8, ../../src/sass/main.sass */
+main {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #eaeaea;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* line 17, ../../src/sass/main.sass */
+.slam-wrap {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+/* line 23, ../../src/sass/main.sass */
+.slam-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 300%;
+  height: 100%;
+  font-size: 0;
+}
+
+/* line 31, ../../src/sass/main.sass */
+.slide {
+  display: inline-block;
+  width: 33.33333%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  background-color: #666;
+}
+/* line 38, ../../src/sass/main.sass */
+.slide > img {
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  vertical-align: top;
+  user-drag: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+}
+@supports (-moz-user-select: none) {
+  /* line 47, ../../src/sass/main.sass */
+  .slide > img {
+    pointer-events: none;
+  }
+}
+
+/* line 50, ../../src/sass/main.sass */
+.slam-nav-wrap {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+}
+
+/* line 57, ../../src/sass/main.sass */
+.slam-nav-item {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  margin: 0.2rem;
+  box-sizing: border-box;
+  transition-property: border-width, background-color;
+  transition-duration: 0.2s;
+}
+/* line 67, ../../src/sass/main.sass */
+.slam-nav-item:not(.slam-nav-active) {
+  cursor: pointer;
+}
+/* line 69, ../../src/sass/main.sass */
+.slam-nav-item:not(.slam-nav-active):hover {
+  border-width: 3px;
+}
+
+/* line 72, ../../src/sass/main.sass */
+.slam-nav-active {
+  background-color: rgba(255, 255, 255, 0.6);
+}
