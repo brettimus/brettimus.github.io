@@ -1,0 +1,145 @@
+@charset "UTF-8";
+body {
+  font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+  -moz-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; }
+
+a {
+  color: #115ABC; }
+
+header nav {
+  box-sizing: border-box;
+  font-weight: 600;
+  padding: 1.2em .5em 1.3em;
+  text-align: center; }
+
+.item {
+  border-bottom: solid 2px #f4f4f4;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 48em;
+  padding: 1.8em 0;
+  padding-left: 50px;
+  position: relative;
+  width: 100%; }
+  .item:first-of-type {
+    border-top: solid 2px #f4f4f4; }
+
+.item-upvote {
+  box-sizing: border-box;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  padding-top: 2em;
+  text-align: center;
+  top: 0;
+  width: 50px; }
+
+.item-main {
+  overflow: hidden;
+  position: relative; }
+
+.item-body {
+  background: #fff;
+  box-sizing: border-box;
+  float: left;
+  padding-bottom: 48px;
+  width: 100%; }
+
+.item-body-left {
+  height: 100%;
+  margin-left: -100%;
+  position: absolute; }
+
+.item-body-right {
+  height: 100%;
+  right: -100%;
+  position: absolute; }
+
+.item-footer {
+  bottom: 0;
+  box-sizing: border-box;
+  padding-top: .75em;
+  position: absolute;
+  width: 100%; }
+
+.item-title {
+  text-decoration: none; }
+  .item-title:hover {
+    text-decoration: underline; }
+
+.item-title-heading {
+  margin: 1.2em 0;
+  margin: 0; }
+
+.item-meta {
+  display: block;
+  font-size: .8em;
+  font-weight: 300; }
+
+.item-meta-url {
+  color: #959595;
+  display: inline-block;
+  margin: 0 .1em; }
+
+.item-meta-timestamp {
+  color: #666; }
+
+.item-meta-author {
+  border-bottom: solid 1px #AE2B3D;
+  color: #666;
+  display: inline-block;
+  padding-bottom: 1px;
+  text-decoration: none; }
+
+.item-action {
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  color: #222;
+  display: inline-block;
+  font-weight: 300;
+  margin: 0; }
+
+.item-action-microcopy {
+  color: #666;
+  display: inline-block;
+  font-size: .8em;
+  padding: .1em .2em .2em; }
+
+.item-action-container {
+  min-height: 48px; }
+
+.item-action-1-2 {
+  position: absolute;
+  width: 50%; }
+
+.item-action-1-2-left {
+  bottom: 0;
+  left: 0; }
+
+.item-action-1-2-right {
+  bottom: 0;
+  right: 0; }
+
+/*
+ * PURE Breakpoints
+ *
+ * sm  @media screen and (min-width: 35.5em) ≥ 568px .pure-u-sm-*
+ * md  @media screen and (min-width: 48em) ≥ 768px .pure-u-md-*
+ * lg  @media screen and (min-width: 64em) ≥ 1024px  .pure-u-lg-*
+ * xl  @media screen and (min-width: 80em) ≥ 1280px  .pure-u-xl-*
+ *
+ */
+@media only screen and (min-width: 48em) {
+  body {
+    font-size: 1.25em; }
+
+  .item {
+    border-left: solid 2px #f4f4f4;
+    border-right: solid 2px #f4f4f4;
+    padding: 2em 0;
+    width: 99%;
+    width: calc(100% - 4px); } }
+
+/*# sourceMappingURL=style.css.map */
