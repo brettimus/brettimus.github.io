@@ -5,7 +5,6 @@ var DOM = require("./utilities/dom"),
 
 module.exports = View;
 
-
 /**
  * @constructor
  * @param {HTMLElement} container
