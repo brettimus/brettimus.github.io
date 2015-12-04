@@ -1,0 +1,23 @@
+html, body {
+  background: #363636;
+}
+
+.app-container {
+  background: #fff;
+  box-sizing: border-box;
+  height: 80%;
+  height: 80vh;
+  overflow: hidden;
+  position: fixed;
+  top: 50%; left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  width: 100vw;
+}
+
+.emoji {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 400;
+  padding: .1em .15em .2em .15em;
+}
