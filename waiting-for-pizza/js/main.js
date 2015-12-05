@@ -127,32 +127,14 @@ function addTouchListener($container) {
 
         q.doit = function() {
             if (q.isEmpty()) return;
-            if (q.isLocked()) printLockWarning();
 
-            q.lock()
-              .head()
+            q.head()
               .run()
-              .then(q.unlock)
               .then(q.dequeue)
               .then(q.doit);
 
             return q;
         };
-
-        // lock/unlock is a hacky way to flag that there's an animation in progress
-        q.lock = function() {
-            isBusy = true;
-            return q;
-        }
-
-        q.unlock = function() {
-            isBusy = false;
-            return q;
-        }
-
-        q.isLocked = function() {
-            return isBusy;
-        }
 
         q.isEmpty = function() {
             return q.length === 0;
@@ -195,14 +177,6 @@ function addTouchListener($container) {
             function runCallbacks() {
                 animation.callbacks.forEach(function(f) { f(); });
             }
-        }
-
-        function printLockWarning() {
-            console.log("%c[WARNING!] Pizza animation queue is executing a command even though the lock is on...", "color: darkred; font-weight: bold;")
-        }
-
-        function printEmptyWarning()  {
-            console.log("%c[WARNING!] Pizza animation queue is trying to execute a command even though it is empty...", "color: darkred; font-weight: bold;") 
         }
     }
 }
