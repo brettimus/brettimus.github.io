@@ -1,20 +1,31 @@
+var APP_CONFIG = {
+    animationDuration: 2000, // ms
+};
 
 var $appContainer = $("main");
 
 initializePizza($appContainer);
-addTouchEvent($appContainer);
+addTouchListener($appContainer);
 
-function addTouchEvent($container) {
+
+
+function addTouchListener($container) {
+
+    var QUEUE = createAnimationQueue();
+
     $container.click(handleClick)
 
     function handleClick(event) {
         var xCoord = event.pageX;
         var yCoord = event.pageY;
-
-        flockPizzaToCoordinate({
+        var clickCoordinate = {
             x: xCoord,
             y: yCoord,
-        })
+        };
+
+        QUEUE.enqueue(function () {
+            flockPizzaToCoordinate(clickCoordinate);
+        });
     }
 
     function flockPizzaToCoordinate(coordinate) {
@@ -78,6 +89,81 @@ function addTouchEvent($container) {
     function addNoise(n, range) {
         return n + randomInRange.apply(null, range);
     }
+
+    function createAnimationQueue() {
+        var q = [];
+        var isBusy = false;
+
+        q.enqueue = function(command) {
+            var wasEmpty = q.isEmpty();
+            q.push(command);
+            if (wasEmpty) {
+                q.run();
+            }
+            return q;
+        };
+
+        q.dequeue = function() {
+            return q.shift();
+        };
+
+        q.run = function() {
+            if (q.isLocked()) {
+                console.log("%c[WARNING!] Pizza animation queue is executing a command even though the lock is on...", "color: darkred; font-weight: bold;")
+            }
+            if (q.isEmpty()) {
+               console.log("%c[WARNING!] Pizza animation queue is trying to execute a command even though it is empty...", "color: darkred; font-weight: bold;") 
+               return;
+            }            
+            q.lock()
+                .executeCommand(q.head())
+                .then(q.unlock)
+                .then(q.dequeue)
+                .then(q.run)
+
+            return q;
+        };
+
+        q.executeCommand = function(command) {
+            command();
+            return q;
+        };
+
+        // very janky means of synchronization hehehe
+        q.then = function(command) {
+            setTimeout(command, APP_CONFIG.animationDuration + 50);
+            return q;
+        };
+
+        // lock/unlock is a hacky way to flag that there's an animation in progress
+        q.lock = function() {
+            isBusy = true;
+            return q;
+        }
+
+        q.unlock = function() {
+            isBusy = false;
+            return q;
+        }
+
+        q.isLocked = function() {
+            return isBusy;
+        }
+
+        q.isEmpty = function() {
+            return q.length === 0;
+        };
+
+        q.head = function() {
+            return q[0];
+        };
+
+        q.last = function() {
+            return q[q.length - 1];
+        };
+
+        return q;
+    }
 }
 
 
@@ -120,8 +206,10 @@ function initializePizza($container) {
     }
 
     function addTransition(element) {
-        element.style.WebkitTransition = "all 2s ease-in-out";
-        element.style.transition = "all 2s ease-in-out";
+        var duration = APP_CONFIG.animationDuration;
+        var transition = "all " + duration + "ms ease-in-out";
+        element.style.WebkitTransition = transition;
+        element.style.transition = transition;
     }
 
     function addPositionalNoise(element) {
