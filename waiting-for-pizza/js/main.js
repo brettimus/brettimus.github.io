@@ -9,29 +9,9 @@ addTouchListener($appContainer);
 
 function addTouchListener($container) {
 
-    var $elementCache = [];
-    var animationQueue = createAnimationQueue();
+    var QUEUE = createAnimationQueue();
 
-    initializeCache($elementCache);
-    addListener($container);
-
-    function initializeCache(cache) {
-        $(".emoji").each(function(i, elt) {
-            var $emoji = $(this),
-                x = $emoji.offset().left,
-                y = $emoji.offset().top;
-
-            cache.push({
-                $e: $emoji,
-                x: x,
-                y: y,
-            })
-        })
-    }
-
-    function addListener($elt) {
-        $elt.click(handleClick);        
-    }
+    $container.click(handleClick)
 
     function handleClick(event) {
         var xCoord = event.pageX;
@@ -41,7 +21,7 @@ function addTouchListener($container) {
             y: yCoord,
         };
 
-        animationQueue.enqueue(function (callback) {
+        QUEUE.enqueue(function (callback) {
             flockPizzaToCoordinate(clickCoordinate, callback);
         });
     }
@@ -54,38 +34,16 @@ function addTouchListener($container) {
     }
 
     function getEmojiAnimationProps(coordinate) {
-        // var result = [];
-        // $(".emoji").each(function(i, elt) {
-        //     var $emoji = $(this),
-        //         emojiX = $emoji.offset().left,
-        //         emojiY = $emoji.offset().top;
+        var result = [];
+        $(".emoji").each(function(i, elt) {
+            var $emoji = $(this),
+                emojiX = $emoji.offset().left,
+                emojiY = $emoji.offset().top;
 
-        //     var xTranslate = coordinate.x - emojiX;
-        //     var yTranslate = coordinate.y - emojiY;
+            var xTranslate = coordinate.x - emojiX;
+            var yTranslate = coordinate.y - emojiY;
 
-        //     result.push({
-        //         e: $emoji,
-        //         p: {
-        //             translateX: xTranslate,
-        //             translateY: yTranslate,                    
-        //         },
-        //         o: {
-        //             duration: 2000,
-        //         }
-        //     });
-        // });
-        // return result;
-
-        return $elementCache.map(function(cachedElement) {
-            var $emoji = cachedElement.$e;
-            var xTranslate = coordinate.x - cachedElement.x;
-            var yTranslate = coordinate.y - cachedElement.y;
-
-            // update cached positions
-            cachedElement.x = coordinate.x;
-            cachedElement.y = coordinate.y;
-
-            return {
+            result.push({
                 e: $emoji,
                 p: {
                     translateX: xTranslate,
@@ -94,22 +52,18 @@ function addTouchListener($container) {
                 o: {
                     duration: 2000,
                 }
-            };
+            });
         });
+        return result;
     }
 
     function addNoiseToAnimationProps(animations) {
         var noiseRange = [-142, 142];
-        animations.forEach(function(a, i) {
-            var xNoise = randomInRange.apply(null, noiseRange);
-            var yNoise = randomInRange.apply(null, noiseRange);
-
-            a.p.translateX += xNoise;
-            a.p.translateY += yNoise;
-
-            // update cached positions
-            $elementCache[i].x += xNoise;
-            $elementCache[i].y += yNoise;
+        animations.forEach(function(a) {
+            var x = a.p.translateX;
+            var y = a.p.translateY;
+            a.p.translateX = addNoise(x, noiseRange);
+            a.p.translateY = addNoise(y, noiseRange);
         });
     }
 
@@ -146,7 +100,87 @@ function addTouchListener($container) {
         // element.style.webkitTransform += t;
         element.style.transform += t;
     }
+
+    function addNoise(n, range) {
+        return n + randomInRange.apply(null, range);
+    }
+
+    function createAnimationQueue() {
+        var q = [];
+        var isBusy = false;
+
+        q.enqueue = function(command) {
+            var animation = createAnimationFromCommand(command);
+            var wasEmpty = q.isEmpty();
+            q.push(animation);
+
+            if (wasEmpty) {
+                q.doit();
+            }
+
+            return q;
+        };
+
+        q.dequeue = function() {
+            return q.shift();
+        };
+
+        q.doit = function() {
+            if (q.isEmpty()) return;
+
+            q.head()
+              .run()
+              .then(q.dequeue)
+              .then(q.doit);
+
+            return q;
+        };
+
+        q.isEmpty = function() {
+            return q.length === 0;
+        };
+
+        q.head = function() {
+            return q[0];
+        };
+
+        q.last = function() {
+            if (arguments.length) {
+                q[q.length - 1] = arguments[0];
+                return q;
+            }
+            return q[q.length - 1];
+        };
+
+        return q;
+
+        function createAnimationFromCommand(command) {
+            var animation = {
+                callbacks: [],
+                run: modifiedCommand,
+            };
+
+            animation.then = addCallback;
+
+            return animation;
+
+            function addCallback(callback) {
+                animation.callbacks.push(callback);
+                return animation;
+            }
+
+            function modifiedCommand() {
+                command(runCallbacks);
+                return animation;
+            }
+
+            function runCallbacks() {
+                animation.callbacks.forEach(function(f) { f(); });
+            }
+        }
+    }
 }
+
 
 function initializePizza($container) {
 
@@ -206,81 +240,6 @@ function initializePizza($container) {
 
     function createContainer() {
         return document.createElement("span");
-    }
-}
-
-function createAnimationQueue() {
-    var q = [];
-    var isBusy = false;
-
-    q.enqueue = function(command) {
-        var animation = createAnimationFromCommand(command);
-        var wasEmpty = q.isEmpty();
-        q.push(animation);
-
-        if (wasEmpty) {
-            q.doit();
-        }
-
-        return q;
-    };
-
-    q.dequeue = function() {
-        return q.shift();
-    };
-
-    q.doit = function() {
-        if (q.isEmpty()) return;
-
-        q.head()
-          .run()
-          .then(q.dequeue)
-          .then(q.doit);
-
-        return q;
-    };
-
-    q.isEmpty = function() {
-        return q.length === 0;
-    };
-
-    q.head = function() {
-        return q[0];
-    };
-
-    q.last = function() {
-        if (arguments.length) {
-            q[q.length - 1] = arguments[0];
-            return q;
-        }
-        return q[q.length - 1];
-    };
-
-    return q;
-
-    function createAnimationFromCommand(command) {
-        var animation = {
-            callbacks: [],
-            run: modifiedCommand,
-        };
-
-        animation.then = addCallback;
-
-        return animation;
-
-        function addCallback(callback) {
-            animation.callbacks.push(callback);
-            return animation;
-        }
-
-        function modifiedCommand() {
-            command(runCallbacks);
-            return animation;
-        }
-
-        function runCallbacks() {
-            animation.callbacks.forEach(function(f) { f(); });
-        }
     }
 }
 
