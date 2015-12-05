@@ -7,8 +7,6 @@ var $appContainer = $("main");
 initializePizza($appContainer);
 addTouchListener($appContainer);
 
-
-
 function addTouchListener($container) {
 
     var QUEUE = createAnimationQueue();
@@ -23,16 +21,16 @@ function addTouchListener($container) {
             y: yCoord,
         };
 
-        QUEUE.enqueue(function () {
-            flockPizzaToCoordinate(clickCoordinate);
+        QUEUE.enqueue(function (callback) {
+            flockPizzaToCoordinate(clickCoordinate, callback);
         });
     }
 
-    function flockPizzaToCoordinate(coordinate) {
+    function flockPizzaToCoordinate(coordinate, callback) {
         var animationProps = getEmojiAnimationProps(coordinate);
 
         addNoiseToAnimationProps(animationProps);
-        executeAnimations(animationProps);
+        executeAnimations(animationProps, callback);
     }
 
     function getEmojiAnimationProps(coordinate) {
@@ -69,13 +67,30 @@ function addTouchListener($container) {
         });
     }
 
-    function executeAnimations(animations) {
+    function executeAnimations(animations, callback) {
+
         animations.forEach(function(animation) {
             // $.Velocity(animation);
             var elt = animation.e.get(0);
             var translation = animation.p;
             addTranslation(elt, translation);
         });
+
+        if (callback) {
+            registerCallbackAfterAnimations(callback, animations)
+        }
+
+        function registerCallbackAfterAnimations(callback, animations) {
+            var lastAnimation = animations[animations.length - 1];
+            var elt = lastAnimation.e.get(0);
+
+            elt.addEventListener("transitionend", modCallback);
+
+            function modCallback() {
+                callback();
+                elt.removeEventListener("transitionend", modCallback)
+            }
+        }
     }
 
     function addTranslation(element, translation) {
@@ -95,11 +110,14 @@ function addTouchListener($container) {
         var isBusy = false;
 
         q.enqueue = function(command) {
+            var animation = createAnimationFromCommand(command);
             var wasEmpty = q.isEmpty();
-            q.push(command);
+            q.push(animation);
+
             if (wasEmpty) {
-                q.run();
+                q.doit();
             }
+
             return q;
         };
 
@@ -107,31 +125,17 @@ function addTouchListener($container) {
             return q.shift();
         };
 
-        q.run = function() {
-            if (q.isLocked()) {
-                console.log("%c[WARNING!] Pizza animation queue is executing a command even though the lock is on...", "color: darkred; font-weight: bold;")
-            }
-            if (q.isEmpty()) {
-               console.log("%c[WARNING!] Pizza animation queue is trying to execute a command even though it is empty...", "color: darkred; font-weight: bold;") 
-               return;
-            }            
+        q.doit = function() {
+            if (q.isEmpty()) return;
+            if (q.isLocked()) printLockWarning();
+
             q.lock()
-                .executeCommand(q.head())
-                .then(q.unlock)
-                .then(q.dequeue)
-                .then(q.run)
+              .head()
+              .run()
+              .then(q.unlock)
+              .then(q.dequeue)
+              .then(q.doit);
 
-            return q;
-        };
-
-        q.executeCommand = function(command) {
-            command();
-            return q;
-        };
-
-        // very janky means of synchronization hehehe
-        q.then = function(command) {
-            setTimeout(command, APP_CONFIG.animationDuration + 50);
             return q;
         };
 
@@ -159,10 +163,47 @@ function addTouchListener($container) {
         };
 
         q.last = function() {
+            if (arguments.length) {
+                q[q.length - 1] = arguments[0];
+                return q;
+            }
             return q[q.length - 1];
         };
 
         return q;
+
+        function createAnimationFromCommand(command) {
+            var animation = {
+                callbacks: [],
+                run: modifiedCommand,
+            };
+
+            animation.then = addCallback;
+
+            return animation;
+
+            function addCallback(callback) {
+                animation.callbacks.push(callback);
+                return animation;
+            }
+
+            function modifiedCommand() {
+                command(runCallbacks);
+                return animation;
+            }
+
+            function runCallbacks() {
+                animation.callbacks.forEach(function(f) { f(); });
+            }
+        }
+
+        function printLockWarning() {
+            console.log("%c[WARNING!] Pizza animation queue is executing a command even though the lock is on...", "color: darkred; font-weight: bold;")
+        }
+
+        function printEmptyWarning()  {
+            console.log("%c[WARNING!] Pizza animation queue is trying to execute a command even though it is empty...", "color: darkred; font-weight: bold;") 
+        }
     }
 }
 
