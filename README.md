@@ -25,3 +25,5 @@ actual command line tool.
 [A live example lives here.](http://brettim.us/game-of-life/virus/dist)
 (See what I did there?)
 
+### [Quill Placeholder](https://github.com/brettimus/quill-placeholder/)
+
