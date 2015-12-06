@@ -22,8 +22,9 @@ function addTouchListener($container) {
             y: yCoord,
         };
 
-        // Each member of the queue is wrapped in a function that takes a callback
-        // (this is what enables synchronization of click events)
+        // Each member of the queue is a function that takes a callback/
+        // The callback is invoked on `transitionend`,
+        // which is what enables us to synchronize click events
         QUEUE.enqueue(function (callback) {
             flockPizzaToCoordinate(clickCoordinate, callback);
         });
