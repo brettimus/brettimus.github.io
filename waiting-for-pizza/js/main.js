@@ -9,6 +9,7 @@ addTouchListener($appContainer);
 
 function addTouchListener($container) {
 
+    // A queue of functions
     var QUEUE = createAnimationQueue();
 
     $container.click(handleClick)
@@ -21,6 +22,8 @@ function addTouchListener($container) {
             y: yCoord,
         };
 
+        // Each member of the queue is wrapped in a function that takes a callback
+        // (this is what enables synchronization of click events)
         QUEUE.enqueue(function (callback) {
             flockPizzaToCoordinate(clickCoordinate, callback);
         });
