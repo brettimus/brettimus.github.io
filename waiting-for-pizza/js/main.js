@@ -205,16 +205,9 @@ function initializePizza($container) {
                 $elt.append(pizza);
             }
         }
-
     }
 
-    function makePizzaElement(options) {
-        var defaults = {
-            height: 10,
-            width: 10,
-        }
-        options = $.extend({}, defaults, options);
-
+    function makePizzaElement() {
         var result = createContainer();
         result.classList.add("emoji");
         result.textContent = "🍕";
@@ -233,7 +226,7 @@ function initializePizza($container) {
     function addPositionalNoise(element) {
         var xNoise = randomInRange(-5, 5);
         var yNoise = randomInRange(-5, 5);
-        var rotateNoise = randomInRange(0, 0);
+        var rotateNoise = randomInRange(0, 0); // adding rotational noise makes future translations a little more difficult. hardcoding to 0 for now.
         var noisyTranslation = "translateX(" + xNoise + "px) translateY(" + yNoise + "px)";
         var noisyRotation = "rotate(" + rotateNoise + "deg)";
         var noisyTransform = noisyTranslation + " " + noisyRotation;
