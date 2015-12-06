@@ -12,8 +12,17 @@ No. It wouldn't.
 
 
 ## Reverse-Chronological List of Projects 
+An incomplete list at the moment. _Working on it._
+
+### [Emoji Boids](https://github.com/brettimus/emoji-boids)
+
+### [SuperHearts](https://github.com/brettimus/super-hearts)
+An over-the-top animation library for spewing hearts everywhere.
 
 ### [Quill Mentions](https://github.com/brettimus/quill-mentions/)
+
+### [Boo Templates :ghost: :heart:](https://github.com/brettimus/boo-templates)
+An extremely lightweight templating tool.
 
 ### [Google Fonts CLI](https://github.com/brettimus/google-fonts-cli/)
 
