@@ -110,54 +110,48 @@ function addTouchListener($container) {
 
     function createAnimationQueue() {
         var q = [];
-        var isBusy = false;
+        var api = {};
 
-        q.enqueue = function(command) {
+        function enqueue(command) {
             var animation = createAnimationFromCommand(command);
-            var wasEmpty = q.isEmpty();
+            var wasEmpty = isEmpty();
+
             q.push(animation);
 
-            if (wasEmpty) {
-                q.doit();
-            }
+            if (wasEmpty) doit();
 
-            return q;
-        };
+            return api;
+        }
 
-        q.dequeue = function() {
+        function dequeue() {
             return q.shift();
-        };
+        }
 
-        q.doit = function() {
-            if (q.isEmpty()) return;
+        function doit() {
+            if (isEmpty()) return;
 
-            q.head()
+            head()
               .run()
-              .then(q.dequeue)
-              .then(q.doit);
+              .then(dequeue)
+              .then(doit);
 
-            return q;
-        };
+            return api;
+        }
 
-        q.isEmpty = function() {
+        function isEmpty() {
             return q.length === 0;
-        };
+        }
 
-        q.head = function() {
+        function head() {
             return q[0];
-        };
+        }
 
-        q.last = function() {
-            if (arguments.length) {
-                q[q.length - 1] = arguments[0];
-                return q;
-            }
-            return q[q.length - 1];
-        };
+        api.enqueue = enqueue;
 
-        return q;
+        return api;
 
         function createAnimationFromCommand(command) {
+            // NB we expect that `command` takes a callback as its first and only parameter
             var animation = {
                 callbacks: [],
                 run: modifiedCommand,
