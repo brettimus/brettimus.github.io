@@ -36,7 +36,6 @@ function addEmojiListener($container) {
             x: xCoord,
             y: yCoord,
         };
-
         // Each member of the queue is a function that takes a callback/
         // The callback is invoked on `transitionend`,
         // which is what enables us to synchronize click events
@@ -278,13 +277,25 @@ function forEachEmoji(f) {
 }
 
 function clickCenterOfPizza() {
-    var $target = $("main").click(); // function name is a misnomer... FIXME
+    var $app  = $("main")
+    var app = $app.get(0);
+    var event = new MouseEvent("click", {
+        clientX: $app.width() / 2,
+        clientY: $app.height() / 2,
+    });
+    app.dispatchEvent(event);
 }
-
 
 // Form controls
 // 
 function addFormListeners() {
+    
+    $("form").keypress(function(event) {
+        if (event.which === 13) { // enter
+            clickCenterOfPizza();
+        }
+    })
+    $("form").on("submit", clickCenterOfPizza);
 
     var $duration = $("[name='duration']");
     var duration = (function($duration){
@@ -294,6 +305,15 @@ function addFormListeners() {
 
         var handler = defaultHandler;
         $duration.change(handler);
+        $duration.keypress(function(event) {
+            if (event.which === 33) { // up arrow
+                console.log("Up arrow");
+            }
+            if (event.which === 34) { // down arrow
+                console.log("Down arrow");
+            }
+
+        });
 
         function defaultHandler(event) {
             var newDuration = parseInt(event.target.value);
@@ -354,6 +374,11 @@ function addFormListeners() {
 
         return api;
     })($rotationNoise);
+
+
+    function decrementValue(str) {
+        
+    }
 
     function parseRangeFromString(str) {
         var result = str.split(",").map(function(i) { return parseInt(i); });

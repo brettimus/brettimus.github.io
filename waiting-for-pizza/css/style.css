@@ -78,7 +78,7 @@ fieldset:not(:last-of-type) {
 }
 fieldset .input {
   float: left;
-  margin-right: .2em;
+  margin-right: .5em;
 }
 fieldset .label {
   display: inline-block;
@@ -98,7 +98,7 @@ fieldset .label {
   background: hsla(23, 50%, 60%, 1);
   border: none;
   display: inline-block;
-  padding: .4em .6em .5em;
+  padding: .4em 1em .5em;
   margin: 0;
 }
 
