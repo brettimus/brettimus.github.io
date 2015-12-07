@@ -1,23 +1,84 @@
 html, body {
-  background: #363636;
+  background: hsl(0, 0%, 20%);
+  color: hsla(23, 50%, 90%, 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.app-container {
-  background: #fff;
+.controls {
+  background: hsl(0, 0%, 12%);
+  border-bottom: solid 1px hsla(23, 50%, 60%, 1);
   box-sizing: border-box;
-  height: 80%;
-  height: 80vh;
-  overflow: hidden;
-  position: fixed;
-  top: 50%; left: 0;
-  transform: translateY(-50%);
+  height: 25%; height: 25vh;
+  padding: 1.4em 1.5em 1.6em;
+  text-align: center;
+  width: 100%; width: 100vw;
+}
+
+.controls h1 {
+  margin: .2em 0;
+}
+
+.controls h2 {
+  font-size: 1.1em;
+  font-weight: 400;
+  margin: .1em 0;
+}
+
+.controls p {
+  color: hsla(23, 25%, 70%, 1);
+  font-size: 90%;
+  font-weight: 300;
+}
+
+.controls form {
+  display: block;
+  margin-top: .5em;
   width: 100%;
-  width: 100vw;
+}
+
+fieldset {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.label {
+  font-weight: 300;
+  font-size: 75%;
+}
+
+.input {
+  background: hsla(23, 50%, 60%, 1);
+  border: none;
+  display: inline-block;
+  padding: .4em .6em .5em;
+  margin: 0;
+}
+
+.input {
+
+}
+
+.container {
+  /*background: #fff;*/
+  box-sizing: border-box;
+  height: 75%; height: 75vh;
+  overflow: hidden;
+
+  /* The widths help tile emoji off-screen */
+  /* 10% of the viewport width on either side  */
+  transform: translateX(-10%);
+  width: 120%; width: 120vw;
 }
 
 .emoji {
   display: inline-block;
+  float: left;
   font-style: normal;
   font-weight: 400;
+  height: 1.25em;
   padding: .1em .15em .2em .15em;
+  width: 1.25em;
 }

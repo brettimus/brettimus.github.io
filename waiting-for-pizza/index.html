@@ -14,10 +14,28 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/style.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="js/vendor/stretchy.min.js" async></script>
     </head>
     <body>
-
-        <main id="app" class="app-container">
+        <header class="controls">
+            <h1>You deserve pizza.<h1>
+            <h2>Let the Pizza flock to you.</h2>
+            <form action="">
+                <fieldset>
+                    <input class="input" id="duration" name="duration" /> 
+                    <label class="label" for="duration">milliseconds</label>                    
+                </fieldset>
+                <fieldset>
+                    <input class="input" id="translation-noise" name="translation-noise" /> 
+                    <label class="label" for="translation-noise">pixels of noise</label>                    
+                </fieldset>
+                <fieldset>
+                    <input class="input" id="rotation-noise" name="rotation-noise" /> 
+                    <label class="label" for="rotation-noise">degrees of noise</label>                    
+                </fieldset>                
+            </form>
+        </header>
+        <main id="app" class="container">
             
         </main>
 

@@ -1,13 +1,17 @@
 var APP_CONFIG = {
     animationDuration: 2000, // ms
+    initialPositionNoise: [-5, 5],
+    initialRotationNoise: [-45, 45],
+    animationTranslationNoise: [-142, 142],
 };
 
 var $appContainer = $("main");
 
 initializePizza($appContainer);
-addTouchListener($appContainer);
+addEmojiListener($appContainer);
+addFormControlListeners();
 
-function addTouchListener($container) {
+function addEmojiListener($container) {
 
     // A queue of functions
     var QUEUE = createAnimationQueue();
@@ -62,7 +66,7 @@ function addTouchListener($container) {
     }
 
     function addNoiseToAnimationProps(animations) {
-        var noiseRange = [-142, 142];
+        var noiseRange = APP_CONFIG.animationTranslationNoise;
         animations.forEach(function(a) {
             var x = a.p.translateX;
             var y = a.p.translateY;
@@ -193,13 +197,13 @@ function initializePizza($container) {
         var height = $elt.height();
 
         // emoji spans are ~(20px X 20px)
-        var rows = Math.ceil(width / 20);
-        var cols = Math.ceil(height / 20);
+        var rows = Math.ceil(width / 20) + 1;  // we add 1 to purposely overflow
+        var cols = Math.ceil(height / 20) + 1;
 
         var row, col;
         var pizza;
-        for (row = 0; row < rows; row++) {
-            for (col = 0; col < cols; col++) {
+        for (row = 0; row <= rows; row++) {
+            for (col = 0; col <= cols; col++) {
                 pizza = makePizzaElement();
                 $elt.append(pizza);
             }
@@ -211,26 +215,13 @@ function initializePizza($container) {
         result.classList.add("emoji");
         result.textContent = "🍕";
         addPositionalNoise(result);
-        addTransition(result);
+        addElementTransition(result, { duration: APP_CONFIG.animationDuration, });
         return result;
     }
 
-    function addTransition(element) {
-        var duration = APP_CONFIG.animationDuration;
-        var transition = "all " + duration + "ms ease-in-out";
-        element.style.WebkitTransition = transition;
-        element.style.transition = transition;
-    }
-
     function addPositionalNoise(element) {
-        var xNoise = randomInRange(-5, 5);
-        var yNoise = randomInRange(-5, 5);
-        var rotateNoise = randomInRange(0, 0); // adding rotational noise makes future translations a little more difficult. hardcoding to 0 for now.
-        var noisyTranslation = "translateX(" + xNoise + "px) translateY(" + yNoise + "px)";
-        var noisyRotation = "rotate(" + rotateNoise + "deg)";
-        var noisyTransform = noisyTranslation + " " + noisyRotation;
-        element.style.webkitTransform = noisyTransform;
-        element.style.transform = noisyTransform;
+        addElementTranslation(element);
+        addElementRotation(element);
     }
 
     function createContainer() {
@@ -238,6 +229,118 @@ function initializePizza($container) {
     }
 }
 
+
+// Utilities
+// (Common functions repeated across top-level scopes)
 function randomInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function addElementTransition(element, options) {
+    var duration = options.duration || APP_CONFIG.animationDuration;
+    var transition = "all " + duration + "ms ease-in-out";
+    element.style.WebkitTransition = transition;
+    element.style.transition = transition;
+}
+
+function addElementTranslation(element, options) {
+    var xNoise = randomInRange.apply(null, APP_CONFIG.initialPositionNoise);
+    var yNoise = randomInRange.apply(null, APP_CONFIG.initialPositionNoise);
+    var noisyTranslation = "translateX(" + xNoise + "px) translateY(" + yNoise + "px) ";
+    addTransform(element, noisyTranslation);
+}
+
+function addElementRotation(element, range) {
+    var rotateNoise = randomInRange.apply(null, range || APP_CONFIG.initialRotationNoise); // adding rotational noise makes future translations a little more difficult. hardcoding to 0 for now.
+    var noisyRotation = " rotate(" + rotateNoise + "deg)";
+    addTransform(element, noisyRotation);
+}
+
+function addTransform(element, transform) {
+    element.style.webkitTransform += transform;
+    element.style.transform += transform;
+}
+
+function forEachEmoji(f) {
+    var emoji = [].slice.call(document.querySelectorAll(".emoji"));
+    emoji.forEach(f);
+}
+
+
+// Form controls
+// 
+function addFormControlListeners() {
+    var $duration = $("[name='duration']");
+    var duration = (function($duration){
+        $duration.get(0).value = APP_CONFIG.animationDuration;
+
+        var api = {};
+
+        var handler = defaultHandler;
+        $duration.change(handler);
+
+        function defaultHandler(event) {
+            var newDuration = parseInt(event.target.value);
+            if (isNaN(newDuration)) {
+                renderError({ originalValue: event.target.value, });
+                return;
+            }
+
+            APP_CONFIG.animationDuration = newDuration;
+            forEachEmoji(function(emoji, i) {
+                addElementTransition(emoji, { duration: newDuration, });
+            });
+        }
+
+        function renderError(errorInfo) {
+            console.log("Error parsing form input value for animation duration.")
+        }
+
+
+        return api;
+    })($duration);
+
+    var $translationNoise = $("[name='translation-noise']");
+    var translationNoise = (function($translationNoise){
+        $translationNoise.get(0).value = APP_CONFIG.animationTranslationNoise.toString();
+
+        var api = {};
+        
+        var handler = defaultHandler;
+        $translationNoise.change(handler);
+
+        function defaultHandler(event) {
+            var newNoise = parseRangeFromString(event.target.value);
+            // TODO - validate
+            APP_CONFIG.animationTranslationNoise = newNoise;
+        }
+
+        return api;
+    })($translationNoise);
+
+    var $rotationNoise = $("[name='rotation-noise']");
+    var rotationNoise = (function($rotationNoise){
+        $rotationNoise.get(0).value = APP_CONFIG.initialRotationNoise.toString();
+
+        var api = {};
+        
+        var handler = defaultHandler;
+        $rotationNoise.change(handler);
+
+        function defaultHandler(event) {
+            var newNoise = parseRangeFromString(event.target.value);
+            // TODO - validate
+            APP_CONFIG.initialRotationNoise = newNoise;
+            forEachEmoji(function(emoji, i) {
+                addElementRotation(emoji);
+            });
+        }
+
+        return api;
+    })($rotationNoise);
+
+    function parseRangeFromString(str) {
+        var result = str.split(",").map(function(i) { return parseInt(i); });
+        return result;
+    }
 }
