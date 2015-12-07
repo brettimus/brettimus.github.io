@@ -3,20 +3,31 @@ var APP_CONFIG = {
     initialPositionNoise: [-5, 5],
     initialRotationNoise: [-45, 45],
     animationTranslationNoise: [-142, 142],
+
+    emojiSize: "normal",
+    getEmojiSize: function getEmojiSize() {
+        if (this.emojiSize === "normal") {
+            return 20;
+        }
+        if (this.emojiSize === "large") {
+            return 50;
+        }
+    }.bind(APP_CONFIG),
 };
 
 var $appContainer = $("main");
 
 initializePizza($appContainer);
 addEmojiListener($appContainer);
-addFormControlListeners();
+addFormListeners();
+// clickCenterOfPizza();
 
 function addEmojiListener($container) {
 
     // A queue of functions
     var QUEUE = createAnimationQueue();
 
-    $container.click(handleClick)
+    $container.click(handleClick);
 
     function handleClick(event) {
         var xCoord = event.pageX;
@@ -246,7 +257,7 @@ function addElementTransition(element, options) {
 function addElementTranslation(element, options) {
     var xNoise = randomInRange.apply(null, APP_CONFIG.initialPositionNoise);
     var yNoise = randomInRange.apply(null, APP_CONFIG.initialPositionNoise);
-    var noisyTranslation = "translateX(" + xNoise + "px) translateY(" + yNoise + "px) ";
+    var noisyTranslation = "translateX(" + xNoise + "px) translateY(" + yNoise + "px) translateZ(0px)";
     addTransform(element, noisyTranslation);
 }
 
@@ -266,10 +277,15 @@ function forEachEmoji(f) {
     emoji.forEach(f);
 }
 
+function clickCenterOfPizza() {
+    var $target = $("main").click(); // function name is a misnomer... FIXME
+}
+
 
 // Form controls
 // 
-function addFormControlListeners() {
+function addFormListeners() {
+
     var $duration = $("[name='duration']");
     var duration = (function($duration){
         $duration.get(0).value = APP_CONFIG.animationDuration;

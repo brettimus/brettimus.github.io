@@ -2,18 +2,29 @@ html, body {
   background: hsl(0, 0%, 20%);
   color: hsla(23, 50%, 90%, 1);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  height: 100vh;
   margin: 0;
+  overflow: hidden;
   padding: 0;
 }
 
+
+
 .controls {
-  background: hsl(0, 0%, 12%);
-  border-bottom: solid 1px hsla(23, 50%, 60%, 1);
+  background: hsla(0, 0%, 12%, .96);
   box-sizing: border-box;
-  height: 25%; height: 25vh;
-  padding: 1.4em 1.5em 1.6em;
-  text-align: center;
-  width: 100%; width: 100vw;
+  display: inline-block;
+  padding: 1.4em 1.5em 2.8em;
+  transform: translateX(0);
+  top: 0; left: 0;
+  width: 100%;
+  border-radius: 1em;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+
+  background: hsla(0, 0%, 12%, .96);
+
+  position: fixed;
 }
 
 .controls h1 {
@@ -30,23 +41,57 @@ html, body {
   color: hsla(23, 25%, 70%, 1);
   font-size: 90%;
   font-weight: 300;
+  margin: 0;
+  margin: 1em 0;
 }
 
 .controls form {
+  border: solid 1px hsl(0, 0%, 40%);
+  border-radius: .1em;
+  display: inline-block;
+  margin-top: .5em auto;
+  padding: 0 1em 1.5em 1em;
+}
+
+form h3 {
   display: block;
-  margin-top: .5em;
-  width: 100%;
+  font-size: 70%;
+  margin: 1em 0;
+  text-align: left;
+}
+
+h3 .text-underline {
+  border-bottom: solid 1px currentColor;
+  display: inline-block;
+  padding-bottom: .1em;
 }
 
 fieldset {
   display: block;
   margin: 0;
   padding: 0;
+  overflow: auto;
 }
+
+fieldset:not(:last-of-type) {
+  /*margin-bottom: .1em;*/
+}
+fieldset .input {
+  float: left;
+  margin-right: .2em;
+}
+fieldset .label {
+  display: inline-block;
+  float: right;
+}
+
+
 
 .label {
   font-weight: 300;
   font-size: 75%;
+
+  padding: .4em .6em .5em;
 }
 
 .input {
@@ -57,20 +102,16 @@ fieldset {
   margin: 0;
 }
 
-.input {
-
-}
-
 .container {
   /*background: #fff;*/
   box-sizing: border-box;
-  height: 75%; height: 75vh;
+  height: 120%;
   overflow: hidden;
 
   /* The widths help tile emoji off-screen */
   /* 10% of the viewport width on either side  */
-  transform: translateX(-10%);
-  width: 120%; width: 120vw;
+  transform: translateX(-10%) translateY(-10%);
+  width: 120%;
 }
 
 .emoji {
@@ -80,5 +121,21 @@ fieldset {
   font-weight: 400;
   height: 1.25em;
   padding: .1em .15em .2em .15em;
+  transform: translateZ(0); /* turn on HA */
   width: 1.25em;
+}
+
+@media only screen and (min-width: 700px) {
+  .controls {
+    background: hsla(0, 0%, 12%, .96);
+    border-radius: 1em;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 1.4em 1.5em 2.8em;
+    position: fixed;
+    text-align: center;
+    transform: translateX(-50%);
+    top: 15%; left: 50%;
+    width: auto;
+  }
 }
