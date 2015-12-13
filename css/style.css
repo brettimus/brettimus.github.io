@@ -48,7 +48,6 @@ header {
 
 .greeting--text-lede {
   font-size: 2.4em;
-  font-style: italic;
   padding-top: .1em; }
 
 .greeting--text-sub {
@@ -109,18 +108,15 @@ a.button-social {
 @media only screen and (min-width: 30em) {
   header {
     padding-top: 5em; }
-
   .greeting--text-container {
     left: 130px; }
-
   .blurb--heading {
     font-size: 1.6em; } }
+
 @media only screen and (min-width: 48em) {
   header {
     padding-top: 6em;
     margin-left: -100px; }
-
   .blurb--heading {
     font-size: 2em; } }
 
-/*# sourceMappingURL=style.css.map */
