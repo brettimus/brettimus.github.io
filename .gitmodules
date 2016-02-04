@@ -1,3 +1,6 @@
 [submodule "super-hearts"]
 	path = super-hearts
 	url = https://github.com/brettimus/super-hearts.git
+[submodule "improv-promo-2016"]
+	path = improv-promo-2016
+	url = https://github.com/brettimus/improv-promo-2016.git
