@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>totally normal</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    html, body {
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      box-sizing: border-box;
+      height: 80vh;
+      margin-top: 9vh;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      width: 90%;
+    }
+
+    .container::after {
+      background: transparent;
+      bottom: 0;
+      color: #fff;
+      content: "Be Normal";
+      font-family: "Butler Bold", sans-serif;
+      font-size: 2em;
+      font-weight: 700;
+      left: 0;
+      padding-bottom: 1.2em;
+      position: absolute;
+      /*opacity: .91;*/
+      text-align: center;
+      text-transform: capitalize;
+      width: 100%;
+    }
+
+    .graph {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="graph" id="normal"></div>    
+  </div>
+
+  <script src="../bower_components/d3/d3.min.js"></script>
+  <script>
+
+  var data = [];
+
+  getData(); // popuate data 
+
+  // line chart based on http://bl.ocks.org/mbostock/3883245
+
+  var example = document.getElementById("normal");
+  var exampleBox = example.getBoundingClientRect();
+  var exampleHeight = exampleBox.height;
+  var exampleWidth = exampleBox.width;
+  var margin = {
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0
+      },
+      width = exampleWidth - margin.left - margin.right,
+      height = exampleHeight - margin.top - margin.bottom;
+
+  var x = d3.scale.linear()
+      .range([0, width]);
+
+  var y = d3.scale.linear()
+      .range([height, 0]);
+
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom");
+
+  var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left");
+
+  var line = d3.svg.line()
+      .x(function(d) {
+          return x(d.q);
+      })
+      .y(function(d) {
+          return y(d.p);
+      });
+
+  var svg = d3.select("#normal").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  x.domain(d3.extent(data, function(d) {
+      return d.q;
+  }));
+  y.domain(d3.extent(data, function(d) {
+      return d.p;
+  }));
+
+  svg.append("path")
+      .datum(data)
+      .attr("class", "line")
+      .attr("d", line)
+      .attr("fill", "#363636");
+
+  function getData() {
+
+  // loop to populate data array with 
+  // probabily - quantile pairs
+  for (var i = 0; i < 100000; i++) {
+      q = normal() // calc random draw from normal dist
+      p = gaussian(q) // calc prob of rand draw
+      el = {
+          "q": q,
+          "p": p
+      }
+      data.push(el)
+  };
+
+  // need to sort for plotting
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  data.sort(function(x, y) {
+      return x.q - y.q;
+  }); 
+  }
+
+  // from http://bl.ocks.org/mbostock/4349187
+  // Sample from a normal distribution with mean 0, stddev 1.
+  function normal() {
+      var x = 0,
+          y = 0,
+          rds, c;
+      do {
+          x = Math.random() * 2 - 1;
+          y = Math.random() * 2 - 1;
+          rds = x * x + y * y;
+      } while (rds == 0 || rds > 1);
+      c = Math.sqrt(-2 * Math.log(rds) / rds); // Box-Muller transform
+      return x * c; // throw away extra sample y * c
+  }
+
+  //taken from Jason Davies science library
+  // https://github.com/jasondavies/science.js/
+  function gaussian(x) {
+    var gaussianConstant = 1 / Math.sqrt(2 * Math.PI),
+      mean = 0,
+        sigma = 1;
+
+      x = (x - mean) / sigma;
+      return gaussianConstant * Math.exp(-.5 * x * x) / sigma;
+  };
+  </script>
+</body>
+</html>
